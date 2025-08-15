@@ -3,21 +3,33 @@
 @prefix core: <https://spec.indusrialontologies.org/ontology/core/Core/> .
 @prefix val: <http://example.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+val:AxisShape a sh:NodeShape ;
+  sh:targetClass mt:Axis ;
+  sh:property [
+    sh:path mt:hasIdentifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
 
 val:LinearShape a sh:NodeShape ;
   sh:targetClass mt:Linear ;
   sh:property [
     sh:path mt:hasName ;
-    sh:pattern "^[X-Z][0-9]*$"
+    sh:pattern "^[X-Z][0-9]*$" ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
   ] .
 
 val:RotaryShape a sh:NodeShape ;
   sh:targetClass mt:Rotary ;
   sh:property [
     sh:path mt:hasName ;
-    sh:pattern "^[A-C][0-9]*$"
+    sh:pattern "^[A-C][0-9]*$" ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
   ] .
 
 val:FiveAxes a sh:NodeShape ;
