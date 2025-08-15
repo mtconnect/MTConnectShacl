@@ -3,4 +3,4 @@
 docker run --rm -v $(pwd):/data -w /data \
   -e LOGGING=-Dlog4j.configurationFile=file:/data/log4j.properties  \
   ghcr.io/ashleycaselli/shacl:latest validate \
-  -shapesfile Validation.ttl -datafile $1
+  -shapesfile $1 -datafile $2
