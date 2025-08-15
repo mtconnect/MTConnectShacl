@@ -20,7 +20,7 @@ val:Observations a sh:NodeShape ;
   sh:targetClass mt:Device ;
   sh:property [
     sh:path ( [ sh:oneOrMorePath mt:hasComponent ] mt:observes ) ;
-    sh:message "The device must observe a controller mode." ;
+    sh:message "The device must observe controller mode." ;
     sh:qualifiedValueShape [
       sh:class mt:ControllerMode ;
     ] ;
@@ -29,7 +29,7 @@ val:Observations a sh:NodeShape ;
   ] ;
     sh:property [
     sh:path ( [ sh:oneOrMorePath mt:hasComponent ] mt:observes ) ;
-    sh:message "The device must observe an execution." ;
+    sh:message "The device must observe execution." ;
     sh:qualifiedValueShape [
       sh:class mt:Execution ;
     ] ;

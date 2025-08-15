@@ -4,6 +4,20 @@
 @prefix val: <http://example.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
 
+val:LinearShape a sh:NodeShape ;
+  sh:targetClass mt:Linear ;
+  sh:property [
+    sh:path mt:hasName ;
+    sh:pattern "^[X-Z][0-9]*$"
+  ] .
+
+val:RotaryShape a sh:NodeShape ;
+  sh:targetClass mt:Rotary ;
+  sh:property [
+    sh:path mt:hasName ;
+    sh:pattern "^[A-C][0-9]*$"
+  ] .
+
 val:FiveAxes a sh:NodeShape ;
   sh:targetClass mt:Device ;
   sh:property [
