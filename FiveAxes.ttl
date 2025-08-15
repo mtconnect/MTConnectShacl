@@ -9,6 +9,7 @@ val:LinearShape a sh:NodeShape ;
   sh:property [
     sh:path mt:hasName ;
     sh:pattern "^[X-Z][0-9]*$"
+    sh:minCount 1 ;
   ] .
 
 val:RotaryShape a sh:NodeShape ;
@@ -16,6 +17,7 @@ val:RotaryShape a sh:NodeShape ;
   sh:property [
     sh:path mt:hasName ;
     sh:pattern "^[A-C][0-9]*$"
+    sh:minCount 1 ;
   ] .
 
 val:FiveAxes a sh:NodeShape ;
