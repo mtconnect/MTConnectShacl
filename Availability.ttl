@@ -10,9 +10,9 @@ val:DeviceHasAController a sh:NodeShape ;
   sh:property [ 
     sh:path  mt:hasComponent ;
     sh:message "The device must have a controller." ;
-		sh:qualifiedValueShape [
+    sh:qualifiedValueShape [
       sh:class mt:Controller ;
-		] ;
+    ] ;
     sh:qualifiedMinCount 1 ;
   ] .
 
@@ -34,6 +34,6 @@ val:Observations a sh:NodeShape ;
       sh:class mt:Execution ;
     ] ;
     sh:qualifiedMinCount 1 ;
-		sh:qualifiedMaxCount 1 ;
+    sh:qualifiedMaxCount 1 ;
   ] .
 
