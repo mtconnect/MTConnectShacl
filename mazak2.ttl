@@ -1,0 +1,295 @@
+@prefix data: <http://example.com/data/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfv: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+data: a owl:Ontology;
+  rdfs:label "Machine Ontology"@en-us .
+
+data:Mazak a mt:Device;
+  mt:hasComponent data:Mazak-mstruct,
+    data:Mazak-a,
+    data:Mazak-door1,
+    data:Mazak-partocc,
+    data:Mazak-systems,
+    data:Mazak-procstock,
+    data:Mazak-enclosurem;
+  mt:hasIdentifier "Mazak";
+  mt:hasName "Mazak" .
+
+mt: a owl:Ontology;
+  rdfs:label "MTConnect Ontology"@en-us .
+
+mt:Ballscrew a owl:Class;
+  rdfs:label "ballscrew"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Condition a owl:Class;
+  rdfs:label "condition"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:ElectricalSystem a owl:Class;
+  rdfs:label "electrical system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:HydraulicSystem a owl:Class;
+  rdfs:label "hydraulic system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:LubricationSystem a owl:Class;
+  rdfs:label "lubrication system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Motor a owl:Class;
+  rdfs:label "motor"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:PneumaticSystem a owl:Class;
+  rdfs:label "pneumatic system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Room a owl:Class;
+  rdfs:label "room"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Sensor a owl:Class;
+  rdfs:label "sensor"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:componentOf a owl:ObjectProperty;
+  rdfs:label "has component"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:Component;
+  owl:inverseOf mt:hasComponent .
+
+mt:hasIdentifier a owl:DatatypeProperty;
+  rdfs:label "has identifier"@en-us;
+  rdfs:range xs:string .
+
+mt:hasName a owl:DatatypeProperty;
+  rdfs:label "has name"@en-us;
+  rdfs:range xs:string .
+
+mt:hasUnits a owl:DatatypeProperty;
+  rdfs:label "has units"@en-us;
+  rdfs:range xs:string .
+
+mt:observedBy a owl:ObjectProperty;
+  rdfs:label "observed by"@en-us;
+  owl:inverseOf mt:observes .
+
+data:Mazak-a a mt:Axes;
+  mt:hasComponent data:Mazak-a-x,
+    data:Mazak-a-y,
+    data:Mazak-a-z,
+    data:Mazak-a-c,
+    data:Mazak-a-br,
+    data:Mazak-a-c2;
+  mt:hasIdentifier "a";
+  mt:hasName "base" .
+
+data:Mazak-a-br a mt:Rotary;
+  mt:hasIdentifier "br";
+  mt:hasName "B" .
+
+data:Mazak-a-c a mt:Rotary;
+  mt:hasIdentifier "c";
+  mt:hasName "C1" .
+
+data:Mazak-a-c2 a mt:Rotary;
+  mt:hasIdentifier "c2";
+  mt:hasName "C2" .
+
+data:Mazak-a-x a mt:Linear;
+  mt:hasIdentifier "x";
+  mt:hasName "X";
+  mt:observes data:Mazak-a-x-Position .
+
+data:Mazak-a-x-Position a mt:Position;
+  mt:hasIdentifier "Xabs",
+    "Xpos" .
+
+data:Mazak-a-y a mt:Linear;
+  mt:hasIdentifier "y";
+  mt:hasName "Y";
+  mt:observes data:Mazak-a-y-Position .
+
+data:Mazak-a-y-Position a mt:Position;
+  mt:hasIdentifier "Yabs",
+    "Ypos" .
+
+data:Mazak-a-z a mt:Linear;
+  mt:hasIdentifier "z";
+  mt:hasName "Z";
+  mt:observes data:Mazak-a-z-Position .
+
+data:Mazak-a-z-Position a mt:Position;
+  mt:hasIdentifier "Zabs",
+    "Zpos" .
+
+data:Mazak-cont-path1-ControllerMode a mt:ControllerMode;
+  mt:hasIdentifier "mode" .
+
+data:Mazak-cont-path1-Execution a mt:Execution;
+  mt:hasIdentifier "execution" .
+
+data:Mazak-cont-path1-PathPosition a mt:PathPosition;
+  mt:hasIdentifier "pathpos" .
+
+data:Mazak-door1 a mt:Door;
+  mt:hasIdentifier "door1";
+  mt:hasName "door" .
+
+data:Mazak-enclosurem a mt:Enclosure;
+  mt:hasIdentifier "enclosurem";
+  mt:hasName "enclosure" .
+
+data:Mazak-mstruct a mt:Structures;
+  mt:hasComponent data:Mazak-mstruct-xaxism,
+    data:Mazak-mstruct-yaxism,
+    data:Mazak-mstruct-zaxis,
+    data:Mazak-mstruct-table,
+    data:Mazak-mstruct-trundle;
+  mt:hasIdentifier "mstruct" .
+
+data:Mazak-mstruct-table a mt:Link;
+  mt:hasIdentifier "table";
+  mt:hasName "TABLE" .
+
+data:Mazak-mstruct-trundle a mt:Link;
+  mt:hasIdentifier "trundle";
+  mt:hasName "TRUNDLE" .
+
+data:Mazak-mstruct-xaxism a mt:Link;
+  mt:hasIdentifier "xaxism";
+  mt:hasName "X_AXIS" .
+
+data:Mazak-mstruct-yaxism a mt:Link;
+  mt:hasIdentifier "yaxism";
+  mt:hasName "Y_AXIS" .
+
+data:Mazak-mstruct-zaxis a mt:Link;
+  mt:hasIdentifier "zaxis";
+  mt:hasName "Z_AXIS" .
+
+data:Mazak-partocc a mt:PartOccurrence;
+  mt:hasIdentifier "partocc" .
+
+data:Mazak-procstock a mt:Stock;
+  mt:hasIdentifier "procstock";
+  mt:hasName "stock" .
+
+data:Mazak-systems a mt:Systems;
+  mt:hasIdentifier "systems";
+  mt:hasName "systems" .
+
+mt:Axes a owl:Class;
+  rdfs:label "axes"@en-us;
+  rdfs:subClassOf mt:Component, [
+    a owl:Restriction;
+    owl:onProperty mt:hasComponent;
+    owl:someValuesFrom mt:Axis
+  ] .
+
+mt:ControllerMode a owl:Class;
+  rdfs:label "controller mode"@en-us;
+  rdfs:subClassOf mt:Event .
+
+mt:Device a owl:Class;
+  rdfs:label "machine"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Door a owl:Class;
+  rdfs:label "door"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Enclosure a owl:Class;
+  rdfs:label "enclosure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Execution a owl:Class;
+  rdfs:label "execution"@en-us;
+  rdfs:subClassOf mt:Event .
+
+mt:PartOccurrence a owl:Class;
+  rdfs:label "part"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Path a owl:Class;
+  rdfs:label "control system path"@en-us;
+  rdfs:subClassOf mt:Controller .
+
+mt:PathPosition a owl:Class;
+  rdfs:label "path position"@en-us;
+  rdfs:subClassOf mt:Sample .
+
+mt:Stock a owl:Class;
+  rdfs:label "stock"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Structure a owl:Class;
+  rdfs:label "enclosure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Structures a owl:Class;
+  rdfs:label "structure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Systems a owl:Class;
+  rdfs:label "systems"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:observes a owl:ObjectProperty;
+  rdfs:label "observes"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:DataItem .
+
+mt:Controller a owl:Class;
+  rdfs:label "controller"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Event a owl:Class;
+  rdfs:label "event"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:Sample a owl:Class;
+  rdfs:label "sample"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:hasComponent a owl:ObjectProperty,
+    owl:TransitiveProperty;
+  rdfs:label "has component"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:Component .
+
+mt:Axis a owl:Class;
+  rdfs:label "axis"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Linear a owl:Class;
+  rdfs:label "linear motion system"@en-us;
+  rdfs:subClassOf mt:Axis .
+
+mt:Position a owl:Class;
+  rdfs:label "position"@en-us;
+  rdfs:subClassOf mt:Sample .
+
+mt:Rotary a owl:Class;
+  rdfs:label "rotary motion system"@en-us;
+  rdfs:subClassOf mt:Axis .
+
+mt:DataItem a owl:Class;
+  rdfs:label "data item"@en-us .
+
+mt:System a owl:Class;
+  rdfs:label "system"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Link a owl:Class;
+  rdfs:label "link"@en-us;
+  rdfs:subClassOf mt:Structure .
+
+mt:Component a owl:Class;
+  rdfs:label "component"@en-us .

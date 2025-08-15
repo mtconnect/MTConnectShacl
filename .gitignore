@@ -1,0 +1,10 @@
+*~
+vendor
+bin
+Gemfile.lock
+.ruby-version
+.bundle
+\#*
+\.#*
+__pycache__
+.vscode

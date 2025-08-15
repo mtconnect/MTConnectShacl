@@ -1,0 +1,174 @@
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfv: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+mt: a owl:Ontology;
+  rdfs:label "MTConnect Ontology"@en-us .
+
+mt:Axes a owl:Class;
+  rdfs:label "axes"@en-us;
+  rdfs:subClassOf mt:Component, [
+    a owl:Restriction;
+    owl:onProperty mt:hasComponent;
+    owl:someValuesFrom mt:Axis
+  ] .
+
+mt:Ballscrew a owl:Class;
+  rdfs:label "ballscrew"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Condition a owl:Class;
+  rdfs:label "condition"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:ControllerMode a owl:Class;
+  rdfs:label "controller mode"@en-us;
+  rdfs:subClassOf mt:Event .
+
+mt:Device a owl:Class;
+  rdfs:label "machine"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Door a owl:Class;
+  rdfs:label "door"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:ElectricalSystem a owl:Class;
+  rdfs:label "electrical system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Enclosure a owl:Class;
+  rdfs:label "enclosure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Execution a owl:Class;
+  rdfs:label "execution"@en-us;
+  rdfs:subClassOf mt:Event .
+
+mt:HydraulicSystem a owl:Class;
+  rdfs:label "hydraulic system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Linear a owl:Class;
+  rdfs:label "linear motion system"@en-us;
+  rdfs:subClassOf mt:Axis .
+
+mt:Link a owl:Class;
+  rdfs:label "link"@en-us;
+  rdfs:subClassOf mt:Structure .
+
+mt:LubricationSystem a owl:Class;
+  rdfs:label "lubrication system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Motor a owl:Class;
+  rdfs:label "motor"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:PartOccurrence a owl:Class;
+  rdfs:label "part"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Path a owl:Class;
+  rdfs:label "control system path"@en-us;
+  rdfs:subClassOf mt:Controller .
+
+mt:PathPosition a owl:Class;
+  rdfs:label "path position"@en-us;
+  rdfs:subClassOf mt:Sample .
+
+mt:PneumaticSystem a owl:Class;
+  rdfs:label "pneumatic system"@en-us;
+  rdfs:subClassOf mt:System .
+
+mt:Position a owl:Class;
+  rdfs:label "position"@en-us;
+  rdfs:subClassOf mt:Sample .
+
+mt:Room a owl:Class;
+  rdfs:label "room"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Rotary a owl:Class;
+  rdfs:label "rotary motion system"@en-us;
+  rdfs:subClassOf mt:Axis .
+
+mt:Sensor a owl:Class;
+  rdfs:label "sensor"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Stock a owl:Class;
+  rdfs:label "stock"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Structures a owl:Class;
+  rdfs:label "structure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Systems a owl:Class;
+  rdfs:label "systems"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:componentOf a owl:ObjectProperty;
+  rdfs:label "has component"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:Component;
+  owl:inverseOf mt:hasComponent .
+
+mt:hasIdentifier a owl:DatatypeProperty;
+  rdfs:label "has identifier"@en-us;
+  rdfs:range xs:string .
+
+mt:hasName a owl:DatatypeProperty;
+  rdfs:label "has name"@en-us;
+  rdfs:range xs:string .
+
+mt:hasUnits a owl:DatatypeProperty;
+  rdfs:label "has units"@en-us;
+  rdfs:range xs:string .
+
+mt:observedBy a owl:ObjectProperty;
+  rdfs:label "observed by"@en-us;
+  owl:inverseOf mt:observes .
+
+mt:Controller a owl:Class;
+  rdfs:label "controller"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Structure a owl:Class;
+  rdfs:label "enclosure"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:observes a owl:ObjectProperty;
+  rdfs:label "observes"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:DataItem .
+
+mt:Event a owl:Class;
+  rdfs:label "event"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:Sample a owl:Class;
+  rdfs:label "sample"@en-us;
+  rdfs:subClassOf mt:DataItem .
+
+mt:hasComponent a owl:ObjectProperty;
+  rdfs:label "has component"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:Component .
+
+mt:Axis a owl:Class;
+  rdfs:label "axis"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:DataItem a owl:Class;
+  rdfs:label "data item"@en-us .
+
+mt:System a owl:Class;
+  rdfs:label "system"@en-us;
+  rdfs:subClassOf mt:Component .
+
+mt:Component a owl:Class;
+  rdfs:label "component"@en-us .
