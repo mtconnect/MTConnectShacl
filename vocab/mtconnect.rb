@@ -9,7 +9,8 @@ include RDF
 
 module MTConnect
   Device = Class.new(RDF::StrictVocabulary("https://purl.mtconnect.org/ontology/")) do
-    ontology :"https://purl.mtconnect.org/ontology/",
+    ontology :"https://purl.mtconnect.org/ontology/Device/",
+      imports: ["https://purl.mtconnect.org/ontology/Capability/"],
       label: {"en-us": "MTConnect Ontology"},
       type: "http://www.w3.org/2002/07/owl#Ontology"
 
@@ -165,10 +166,10 @@ module MTConnect
          subClassOf: self.Component,
          type: "http://www.w3.org/2002/07/owl#Class"
 
-     term :Link,
-          label: {'en-us': 'link'},
-          subClassOf: self.Structure,
-          type: "http://www.w3.org/2002/07/owl#Class"
+    term :Link,
+        label: {'en-us': 'link'},
+        subClassOf: self.Structure,
+        type: "http://www.w3.org/2002/07/owl#Class"
 
     term :Structures,
          label: {'en-us': 'structure'},
@@ -205,6 +206,16 @@ module MTConnect
          subClassOf: self.Sample,
          type: "http://www.w3.org/2002/07/owl#Class"
 
+    term :PositionActual,
+         label: {'en-us': 'actual position'},
+         subClassOf: self.Position,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
+    term :PositionProgrammed,
+         label: {'en-us': 'programmed position'},
+         subClassOf: self.Position,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
     term :PathPosition,
          label: {'en-us': 'path position'},
          subClassOf: self.Sample,
@@ -220,6 +231,9 @@ module MTConnect
          subClassOf: self.Event,
          type: "http://www.w3.org/2002/07/owl#Class"
 
+    term :Capability,
+         label: {'en-us': 'capability'},
+         type: "http://www.w3.org/2002/07/owl#Class"
   end
 
 end

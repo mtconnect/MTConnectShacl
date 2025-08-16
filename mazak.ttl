@@ -20,16 +20,19 @@ data:Mazak a mt:Device;
   mt:hasIdentifier "Mazak";
   mt:hasName "Mazak" .
 
-mt: a owl:Ontology;
-  rdfs:label "MTConnect Ontology"@en-us .
-
 mt:Ballscrew a owl:Class;
   rdfs:label "ballscrew"@en-us;
   rdfs:subClassOf mt:Component .
 
+mt:Capability a owl:Class;
+  rdfs:label "capability"@en-us .
+
 mt:Condition a owl:Class;
   rdfs:label "condition"@en-us;
   rdfs:subClassOf mt:DataItem .
+
+mt:Device\/ a owl:Ontology;
+  rdfs:label "MTConnect Ontology"@en-us .
 
 mt:ElectricalSystem a owl:Class;
   rdfs:label "electrical system"@en-us;
@@ -106,29 +109,38 @@ data:Mazak-a-c2 a mt:Rotary;
 data:Mazak-a-x a mt:Linear;
   mt:hasIdentifier "x";
   mt:hasName "X";
-  mt:observes data:Mazak-a-x-Position .
+  mt:observes data:Mazak-a-x-PositionActual,
+    data:Mazak-a-x-PositionProgrammed .
 
-data:Mazak-a-x-Position a mt:Position;
-  mt:hasIdentifier "Xabs",
-    "Xpos" .
+data:Mazak-a-x-PositionActual a mt:PositionActual;
+  mt:hasIdentifier "Xabs" .
+
+data:Mazak-a-x-PositionProgrammed a mt:PositionProgrammed;
+  mt:hasIdentifier "Xpos" .
 
 data:Mazak-a-y a mt:Linear;
   mt:hasIdentifier "y";
   mt:hasName "Y";
-  mt:observes data:Mazak-a-y-Position .
+  mt:observes data:Mazak-a-y-PositionActual,
+    data:Mazak-a-y-PositionProgrammed .
 
-data:Mazak-a-y-Position a mt:Position;
-  mt:hasIdentifier "Yabs",
-    "Ypos" .
+data:Mazak-a-y-PositionActual a mt:PositionActual;
+  mt:hasIdentifier "Yabs" .
+
+data:Mazak-a-y-PositionProgrammed a mt:PositionProgrammed;
+  mt:hasIdentifier "Ypos" .
 
 data:Mazak-a-z a mt:Linear;
   mt:hasIdentifier "z";
   mt:hasName "Z";
-  mt:observes data:Mazak-a-z-Position .
+  mt:observes data:Mazak-a-z-PositionActual,
+    data:Mazak-a-z-PositionProgrammed .
 
-data:Mazak-a-z-Position a mt:Position;
-  mt:hasIdentifier "Zabs",
-    "Zpos" .
+data:Mazak-a-z-PositionActual a mt:PositionActual;
+  mt:hasIdentifier "Zabs" .
+
+data:Mazak-a-z-PositionProgrammed a mt:PositionProgrammed;
+  mt:hasIdentifier "Zpos" .
 
 data:Mazak-cont a mt:Controller;
   mt:hasComponent data:Mazak-cont-path1;
@@ -267,6 +279,10 @@ mt:Event a owl:Class;
   rdfs:label "event"@en-us;
   rdfs:subClassOf mt:DataItem .
 
+mt:Position a owl:Class;
+  rdfs:label "position"@en-us;
+  rdfs:subClassOf mt:Sample .
+
 mt:Sample a owl:Class;
   rdfs:label "sample"@en-us;
   rdfs:subClassOf mt:DataItem .
@@ -285,9 +301,13 @@ mt:Linear a owl:Class;
   rdfs:label "linear motion system"@en-us;
   rdfs:subClassOf mt:Axis .
 
-mt:Position a owl:Class;
-  rdfs:label "position"@en-us;
-  rdfs:subClassOf mt:Sample .
+mt:PositionActual a owl:Class;
+  rdfs:label "actual position"@en-us;
+  rdfs:subClassOf mt:Position .
+
+mt:PositionProgrammed a owl:Class;
+  rdfs:label "programmed position"@en-us;
+  rdfs:subClassOf mt:Position .
 
 mt:Rotary a owl:Class;
   rdfs:label "rotary motion system"@en-us;

@@ -61,7 +61,7 @@ class MTConnectToRDF
       @graph << [iri, MTConnect::Device.hasIdentifier, comp[:uuid] || comp[:id]]
       
       comp.each_element('./DataItems/DataItem') do |di|
-        di_type = di[:type].split("_").map(&:capitalize).join.to_sym
+        di_type = [di[:type], di[:subType]].compact.join('_').split("_").map(&:capitalize).join.to_sym
 
         if di[:category] != 'CONDITION' and MTConnect::Device.methods.include?(di_type)
           dicls = MTConnect::Device[di_type]

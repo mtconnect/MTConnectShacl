@@ -115,7 +115,7 @@
               </Configuration>
               <DataItems>
                 <DataItem category="SAMPLE" coordinateSystemIdRef="machcoord" id="Xabs" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
-                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Xpos" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Xpos" subType="PROGRAMMED" type="POSITION" units="MILLIMETER"/>
                 <DataItem category="CONDITION" id="Xtravel" type="POSITION"/>
                 <DataItem category="SAMPLE" id="Xload" type="LOAD" units="PERCENT">
                   <Filters>
@@ -173,7 +173,7 @@
               </Configuration>
               <DataItems>
                 <DataItem category="SAMPLE" coordinateSystemIdRef="machcoord" id="Yabs" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
-                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Ypos" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Ypos" subType="PROGRAMMED" type="POSITION" units="MILLIMETER"/>
                 <DataItem category="CONDITION" id="Ytravel" type="POSITION"/>
                 <DataItem category="SAMPLE" id="Yload" type="LOAD" units="PERCENT">
                   <Filters>
@@ -231,7 +231,7 @@
               </Configuration>
               <DataItems>
                 <DataItem category="SAMPLE" coordinateSystemIdRef="machcoord" id="Zabs" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
-                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Zpos" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Zpos" subType="PROGRAMMED" type="POSITION" units="MILLIMETER"/>
                 <DataItem category="CONDITION" id="Ztravel" type="POSITION"/>
                 <DataItem category="SAMPLE" id="Zload" type="LOAD" units="PERCENT">
                   <Filters>
@@ -336,7 +336,7 @@
                 <DataItem category="SAMPLE" id="Bfrt" nativeUnits="DEGREE/MINUTE" type="ANGULAR_VELOCITY" units="DEGREE/SECOND"/>
                 <DataItem category="CONDITION" id="Btravel" type="ANGLE"/>
                 <DataItem category="SAMPLE" coordinateSystemIdRef="machcoord" id="Babs" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
-                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Bpos" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
+                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Bpos" subType="PROGRAMMED" type="ANGLE" units="DEGREE"/>
                 <DataItem category="EVENT" id="c3rfunc" type="ROTARY_MODE">
                   <Constraints>
                     <Value>CONTOUR</Value>
@@ -378,7 +378,7 @@
                 <DataItem category="CONDITION" id="Ctravel" type="ANGLE"/>
                 <DataItem category="SAMPLE" id="Cfrt" nativeUnits="DEGREE/MINUTE" type="ANGULAR_VELOCITY" units="DEGREE/SECOND"/>
                 <DataItem category="SAMPLE" coordinateSystemIdRef="machcoord" id="Cabs" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
-                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Cpos" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
+                <DataItem category="SAMPLE" coordinateSystemIdRef="workcoord" id="Cpos" subType="PROGRAMMED" type="ANGLE" units="DEGREE"/>
                 <DataItem category="EVENT" id="crfunc" type="ROTARY_MODE">
                   <Constraints>
                     <Value>CONTOUR</Value>
