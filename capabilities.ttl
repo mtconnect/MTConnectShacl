@@ -1,0 +1,139 @@
+@prefix : <https://purl.mtconnect.org/ontology/Capability/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/construct/> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix data: <http://example.com/data/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfv: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@base <https://purl.mtconnect.org/ontology/Capability/> .
+
+<https://purl.mtconnect.org/ontology/Capability/> rdfv:type owl:Ontology ;
+                                                   rdfs:label "MTConnect Ontology"@en-us ,
+                                                              "Machine Ontology"@en-us .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
+owl:minQualifiedCardinality rdfv:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/construct/hasComponent
+mt:hasComponent rdfv:type owl:ObjectProperty .
+
+
+###  https://purl.mtconnect.org/ontology/construct/observes
+mt:observes rdfv:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/construct/Axes
+mt:Axes rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Capability
+mt:Capability rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ComputeAvailability
+mt:ComputeAvailability rdfv:type owl:Class ;
+                       owl:equivalentClass [ owl:intersectionOf ( mt:Device
+                                                                  [ rdfv:type owl:Restriction ;
+                                                                    owl:onProperty mt:hasComponent ;
+                                                                    owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                              [ owl:intersectionOf ( [ rdfv:type owl:Restriction ;
+                                                                                                                                       owl:onProperty mt:observes ;
+                                                                                                                                       owl:someValuesFrom mt:ControllerMode
+                                                                                                                                     ]
+                                                                                                                                     [ rdfv:type owl:Restriction ;
+                                                                                                                                       owl:onProperty mt:observes ;
+                                                                                                                                       owl:someValuesFrom mt:Execution
+                                                                                                                                     ]
+                                                                                                                                   ) ;
+                                                                                                                rdfv:type owl:Class
+                                                                                                              ]
+                                                                                                            ) ;
+                                                                                         rdfv:type owl:Class
+                                                                                       ]
+                                                                  ]
+                                                                ) ;
+                                             rdfv:type owl:Class
+                                           ] ;
+                       rdfs:subClassOf mt:Capability ;
+                       rdfs:label "compute availability"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Controller
+mt:Controller rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ControllerMode
+mt:ControllerMode rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Device
+mt:Device rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Execution
+mt:Execution rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/FiveAxes
+mt:FiveAxes rdfv:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( mt:Device
+                                                       [ rdfv:type owl:Restriction ;
+                                                         owl:onProperty mt:hasComponent ;
+                                                         owl:someValuesFrom [ owl:intersectionOf ( mt:Axes
+                                                                                                   [ rdfv:type owl:Restriction ;
+                                                                                                     owl:onProperty mt:hasComponent ;
+                                                                                                     owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass mt:Linear
+                                                                                                   ]
+                                                                                                   [ rdfv:type owl:Restriction ;
+                                                                                                     owl:onProperty mt:hasComponent ;
+                                                                                                     owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass mt:Rotary
+                                                                                                   ]
+                                                                                                 ) ;
+                                                                              rdfv:type owl:Class
+                                                                            ]
+                                                       ]
+                                                     ) ;
+                                  rdfv:type owl:Class
+                                ] ;
+            rdfs:subClassOf mt:Capability ;
+            rdfs:label "five axes"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Linear
+mt:Linear rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Path
+mt:Path rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Rotary
+mt:Rotary rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ThreeRotaryAxes
+mt:ThreeRotaryAxes rdfv:type owl:Class .
+
+
+[ owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger
+] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

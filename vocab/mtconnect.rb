@@ -8,9 +8,8 @@ require 'rdf/turtle'
 include RDF
 
 module MTConnect
-  Device = Class.new(RDF::StrictVocabulary("https://purl.mtconnect.org/ontology/")) do
+  Device = Class.new(RDF::StrictVocabulary("https://purl.mtconnect.org/ontology/construct/")) do
     ontology :"https://purl.mtconnect.org/ontology/Device/",
-      imports: ["https://purl.mtconnect.org/ontology/Capability/"],
       label: {"en-us": "MTConnect Ontology"},
       type: "http://www.w3.org/2002/07/owl#Ontology"
 
@@ -242,6 +241,7 @@ module Inst
   Data = Class.new(RDF::Vocabulary("http://example.com/data/")) do
     ontology :"http://example.com/data/",
       label: {"en-us": "Machine Ontology"},
+      "http://www.w3.org/2002/07/owl#imports": "https://purl.mtconnect.org/ontology/Capability/",
       type: "http://www.w3.org/2002/07/owl#Ontology"
   end
 end
