@@ -24,7 +24,7 @@ module MTConnect
 
     property :hasComponent,
              label: {'en-us': 'has component'},
-             type: [RDF::OWL.ObjectProperty, RDF::OWL.TransitiveProperty],
+             type: [RDF::OWL.ObjectProperty],
              domain: self.Component,
              range: self.Component
 
@@ -76,7 +76,7 @@ module MTConnect
          label: {"en-us": "axes"},
          subClassOf: [self.Component,
                term(onProperty: self.hasComponent,
-                    someValuesFrom: self.Axis,
+                    allValuesFrom: self.Axis,
                     type: "http://www.w3.org/2002/07/owl#Restriction")],
          type: "http://www.w3.org/2002/07/owl#Class"
 
@@ -88,6 +88,7 @@ module MTConnect
     term :Rotary,
          label: {"en-us": "rotary motion system"},
          subClassOf: self.Axis,
+         "http://www.w3.org/2002/07/owl#disjointWith": self.Linear,
          type: "http://www.w3.org/2002/07/owl#Class"
 
     term :Controller,
@@ -233,6 +234,23 @@ module MTConnect
     term :Capability,
          label: {'en-us': 'capability'},
          type: "http://www.w3.org/2002/07/owl#Class"
+
+    property :hasCapability,
+      label: {'en-us': 'has capability'},
+      type: [RDF::OWL.ObjectProperty],
+      domain: self.Component,
+      range: self.Capability
+
+    property :isCapabilityOf,
+      label: {'en-us': 'is capability of'},
+      type: [RDF::OWL.ObjectProperty],
+      domain: self.Capability,
+      range: self.Component,
+      inverseOf: self.hasCapability
+
+    term :_alldis1, type: RDF::OWL.AllDisjointClasses,
+      "http://www.w3.org/2002/07/owl#members": list(self.ElectricalSystem, self.HydraulicSystem, self.LubricationSystem, self.PneumaticSystem)
+
   end
 
 end
@@ -241,7 +259,7 @@ module Inst
   Data = Class.new(RDF::Vocabulary("http://example.com/data/")) do
     ontology :"http://example.com/data/",
       label: {"en-us": "Machine Ontology"},
-      "http://www.w3.org/2002/07/owl#imports": "https://purl.mtconnect.org/ontology/Capability/",
+      "http://www.w3.org/2002/07/owl#imports": "https://purl.mtconnect.org/ontology/Device/",
       type: "http://www.w3.org/2002/07/owl#Ontology"
   end
 end

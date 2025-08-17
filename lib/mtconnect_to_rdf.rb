@@ -25,9 +25,10 @@ class MTConnectToRDF
 
     RDF::Reasoner.apply(:rdfs, :owl)
     
+    devices = []
     @doc.each_element('//Device') do |dev|
       @device_name = dev[:name]
-      add_component(dev)
+      devices << add_component(dev)
     end
   end
 
@@ -56,10 +57,14 @@ class MTConnectToRDF
       iri = Inst::Data[names.join('-')]
 
       @graph << [iri, RDF.type, cls]      
+
+      cap = sub_iri(names, 'capability')
+      @graph << [iri, MTConnect::Device.hasCapability, cap]
+
       @graph << [parent, MTConnect::Device.hasComponent, iri] if parent
       @graph << [iri, MTConnect::Device.hasName, comp[:name]] if comp[:name]
       @graph << [iri, MTConnect::Device.hasIdentifier, comp[:uuid] || comp[:id]]
-      
+
       comp.each_element('./DataItems/DataItem') do |di|
         di_type = [di[:type], di[:subType]].compact.join('_').split("_").map(&:capitalize).join.to_sym
 
@@ -82,9 +87,18 @@ class MTConnectToRDF
     #end
 
     # Recurse each components
+    iris = []
     comp.each_element('./Components/*') do |child|
-      add_component(child, names, level + 1)
+      iris << add_component(child, names, level + 1)
     end
+    iris.compact!
+    unless iris.empty?
+      @graph << (s = Statement.new(RDF.Node, RDF.type, RDF::OWL.AllDifferent))
+      @graph << (l = RDF.List(iris))
+      @graph << [s.subject, RDF::OWL.distinctMembers, l]
+    end
+
+    iri
   end
 
   def generate(machine)
