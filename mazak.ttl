@@ -20,7 +20,8 @@ data:Mazak a mt:Device;
     data:Mazak-procstock,
     data:Mazak-enclosurem;
   mt:hasIdentifier "Mazak";
-  mt:hasName "Mazak" .
+  mt:hasName "Mazak";
+  mt:observes data:Mazak-Availability .
 
 mt:Ballscrew a owl:Class;
   rdfs:label "ballscrew"@en-us;
@@ -72,6 +73,9 @@ mt:isCapabilityOf a owl:ObjectProperty;
 mt:observedBy a owl:ObjectProperty;
   rdfs:label "observed by"@en-us;
   owl:inverseOf mt:observes .
+
+data:Mazak-Availability a mt:Availability;
+  mt:hasIdentifier "avail" .
 
 data:Mazak-a-br-capability a mt:Capability .
 
@@ -159,7 +163,11 @@ mt:ControllerMode a owl:Class;
 
 mt:Device a owl:Class;
   rdfs:label "machine"@en-us;
-  rdfs:subClassOf mt:Component .
+  rdfs:subClassOf mt:Component, [
+    a owl:Restriction;
+    owl:onProperty mt:observes;
+    owl:someValuesFrom mt:Availability
+  ] .
 
 mt:Door a owl:Class;
   rdfs:label "door"@en-us;
@@ -221,11 +229,6 @@ mt:hasCapability a owl:ObjectProperty;
   rdfs:label "has capability"@en-us;
   rdfs:domain mt:Component;
   rdfs:range mt:Capability .
-
-mt:observes a owl:ObjectProperty;
-  rdfs:label "observes"@en-us;
-  rdfs:domain mt:Component;
-  rdfs:range mt:DataItem .
 
 data:Mazak-a a mt:Axes;
   mt:hasCapability data:Mazak-a-capability;
@@ -346,13 +349,13 @@ data:Mazak-systems a mt:Systems;
   mt:hasIdentifier "systems";
   mt:hasName "systems" .
 
+mt:Availability a owl:Class;
+  rdfs:label "availability"@en-us;
+  rdfs:subClassOf mt:Event .
+
 mt:Controller a owl:Class;
   rdfs:label "controller"@en-us;
   rdfs:subClassOf mt:Component .
-
-mt:Event a owl:Class;
-  rdfs:label "event"@en-us;
-  rdfs:subClassOf mt:DataItem .
 
 mt:Position a owl:Class;
   rdfs:label "position"@en-us;
@@ -367,9 +370,18 @@ mt:hasComponent a owl:ObjectProperty;
   rdfs:domain mt:Component;
   rdfs:range mt:Component .
 
+mt:observes a owl:ObjectProperty;
+  rdfs:label "observes"@en-us;
+  rdfs:domain mt:Component;
+  rdfs:range mt:DataItem .
+
 mt:Axis a owl:Class;
   rdfs:label "axis"@en-us;
   rdfs:subClassOf mt:Component .
+
+mt:Event a owl:Class;
+  rdfs:label "event"@en-us;
+  rdfs:subClassOf mt:DataItem .
 
 mt:PositionActual a owl:Class;
   rdfs:label "actual position"@en-us;

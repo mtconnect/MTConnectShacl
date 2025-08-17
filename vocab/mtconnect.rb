@@ -61,11 +61,6 @@ module MTConnect
           label: {'en-us': 'observed by'},
           type: [RDF::OWL.ObjectProperty],
           inverseOf: self.observes
-
-    term :Device,
-         label: {"en-us": "machine"},
-         subClassOf: self.Component,
-         type: "http://www.w3.org/2002/07/owl#Class"
     
     term :Axis,
          label: {"en-us": "axis"},
@@ -201,6 +196,11 @@ module MTConnect
         subClassOf: self.DataItem,
         type: "http://www.w3.org/2002/07/owl#Class"
 
+    term :Availability,
+         label: {'en-us': 'availability'},
+         subClassOf: self.Event,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
     term :Position,
          label: {'en-us': 'position'},
          subClassOf: self.Sample,
@@ -233,6 +233,14 @@ module MTConnect
 
     term :Capability,
          label: {'en-us': 'capability'},
+         type: "http://www.w3.org/2002/07/owl#Class"
+
+
+    term :Device,
+         label: {"en-us": "machine"},
+         subClassOf: [self.Component, term(onProperty: self.observes,
+                    someValuesFrom: self.Availability,
+                    type: "http://www.w3.org/2002/07/owl#Restriction")],
          type: "http://www.w3.org/2002/07/owl#Class"
 
     property :hasCapability,
