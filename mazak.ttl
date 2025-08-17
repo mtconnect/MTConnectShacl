@@ -73,11 +73,21 @@ mt:observedBy a owl:ObjectProperty;
   rdfs:label "observed by"@en-us;
   owl:inverseOf mt:observes .
 
+data:Mazak-a-br-capability a mt:Capability .
+
+data:Mazak-a-c-capability a mt:Capability .
+
+data:Mazak-a-c2-capability a mt:Capability .
+
+data:Mazak-a-capability a mt:Capability .
+
 data:Mazak-a-x-PositionActual a mt:PositionActual;
   mt:hasIdentifier "Xabs" .
 
 data:Mazak-a-x-PositionProgrammed a mt:PositionProgrammed;
   mt:hasIdentifier "Xpos" .
+
+data:Mazak-a-x-capability a mt:Capability .
 
 data:Mazak-a-y-PositionActual a mt:PositionActual;
   mt:hasIdentifier "Yabs" .
@@ -85,11 +95,19 @@ data:Mazak-a-y-PositionActual a mt:PositionActual;
 data:Mazak-a-y-PositionProgrammed a mt:PositionProgrammed;
   mt:hasIdentifier "Ypos" .
 
+data:Mazak-a-y-capability a mt:Capability .
+
 data:Mazak-a-z-PositionActual a mt:PositionActual;
   mt:hasIdentifier "Zabs" .
 
 data:Mazak-a-z-PositionProgrammed a mt:PositionProgrammed;
   mt:hasIdentifier "Zpos" .
+
+data:Mazak-a-z-capability a mt:Capability .
+
+data:Mazak-capability a mt:Capability .
+
+data:Mazak-cont-capability a mt:Capability .
 
 data:Mazak-cont-path1-ControllerMode a mt:ControllerMode;
   mt:hasIdentifier "mode" .
@@ -99,6 +117,30 @@ data:Mazak-cont-path1-Execution a mt:Execution;
 
 data:Mazak-cont-path1-PathPosition a mt:PathPosition;
   mt:hasIdentifier "pathpos" .
+
+data:Mazak-cont-path1-capability a mt:Capability .
+
+data:Mazak-door1-capability a mt:Capability .
+
+data:Mazak-enclosurem-capability a mt:Capability .
+
+data:Mazak-mstruct-capability a mt:Capability .
+
+data:Mazak-mstruct-table-capability a mt:Capability .
+
+data:Mazak-mstruct-trundle-capability a mt:Capability .
+
+data:Mazak-mstruct-xaxism-capability a mt:Capability .
+
+data:Mazak-mstruct-yaxism-capability a mt:Capability .
+
+data:Mazak-mstruct-zaxis-capability a mt:Capability .
+
+data:Mazak-partocc-capability a mt:Capability .
+
+data:Mazak-procstock-capability a mt:Capability .
+
+data:Mazak-systems-capability a mt:Capability .
 
 <https://purl.mtconnect.org/ontology/Device/> a owl:Ontology;
   rdfs:label "MTConnect Ontology"@en-us .
@@ -304,9 +346,6 @@ data:Mazak-systems a mt:Systems;
   mt:hasIdentifier "systems";
   mt:hasName "systems" .
 
-mt:Capability a owl:Class;
-  rdfs:label "capability"@en-us .
-
 mt:Controller a owl:Class;
   rdfs:label "controller"@en-us;
   rdfs:subClassOf mt:Component .
@@ -359,6 +398,9 @@ mt:System a owl:Class;
 mt:Link a owl:Class;
   rdfs:label "link"@en-us;
   rdfs:subClassOf mt:Structure .
+
+mt:Capability a owl:Class;
+  rdfs:label "capability"@en-us .
 
 mt:Component a owl:Class;
   rdfs:label "component"@en-us .

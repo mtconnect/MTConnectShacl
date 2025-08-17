@@ -59,6 +59,7 @@ class MTConnectToRDF
       @graph << [iri, RDF.type, cls]      
 
       cap = sub_iri(names, 'capability')
+      @graph << [cap, RDF.type, MTConnect::Device.Capability]
       @graph << [iri, MTConnect::Device.hasCapability, cap]
 
       @graph << [parent, MTConnect::Device.hasComponent, iri] if parent
