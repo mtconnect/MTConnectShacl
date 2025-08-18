@@ -65,6 +65,10 @@ mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                                                                                                                                rdfv:type owl:Class
                                                                                                                                              ]
                                                                                                                         ]
+                                                                                                                        [ rdfv:type owl:Restriction ;
+                                                                                                                          owl:onProperty mt:observes ;
+                                                                                                                          owl:someValuesFrom mt:Availability
+                                                                                                                        ]
                                                                                                                       ) ;
                                                                                                    rdfv:type owl:Class
                                                                                                  ]

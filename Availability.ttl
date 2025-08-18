@@ -2,7 +2,7 @@
 @prefix data: <http://example.org/data/> .
 @prefix core: <https://spec.indusrialontologies.org/ontology/core/Core/> .
 @prefix val: <http://example.org/shacl/> .
-@prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/construct/> .
 
 
 val:DeviceHasAController a sh:NodeShape ;
@@ -27,7 +27,7 @@ val:Observations a sh:NodeShape ;
     sh:qualifiedMinCount 1 ;
 		sh:qualifiedMaxCount 1 ;
   ] ;
-    sh:property [
+  sh:property [
     sh:path ( [ sh:oneOrMorePath mt:hasComponent ] mt:observes ) ;
     sh:message "The device must observe execution." ;
     sh:qualifiedValueShape [
