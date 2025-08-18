@@ -12,7 +12,7 @@
 
 <https://purl.mtconnect.org/ontology/Capability/> rdfv:type owl:Ontology ;
                                                    owl:imports data: ,
-                                                               <https://purl.mtconnect.org/ontology/construct/Device/> ;
+                                                               <https://purl.mtconnect.org/ontology/Device/> ;
                                                    rdfs:label "MTConnect Capabilities"@en-us .
 
 #################################################################
