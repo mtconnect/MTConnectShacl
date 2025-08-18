@@ -79,13 +79,27 @@ class MTConnectToRDF
           @graph << [di_inst, MTConnect::Device.hasName, di[:name]] if di[:name]
           @graph << [di_inst, MTConnect::Device.hasIdentifier, di[:id]]
         end
-      end      
+      end
+      comp.each_element('./Configuration/Motion') do |mot|
+        m_iri = sub_iri(names, ['motion', mot[:type].downcase])
+        puts "#{'  ' * (level + 1)}** Motion #{mot[:type]} #{iri} #{m_iri}"
+        
+        m_cls = nil
+        case mot[:type]
+        when 'CONTINUOUS'
+          m_cls = MTConnect::Device.ContinuousRevoluteMotionCapability
+        when 'REVOLUTE'
+          m_cls = MTConnect::Device.IndexedRevoluteMotionCapability  
+        when 'PRISMATIC'
+          m_cls = MTConnect::Device.PrismaticMotionCapability
+        end
+        if m_cls
+          puts "#{'  ' * (level + 2)}** Adding #{m_cls}"
+          @graph << (s = Statement.new(m_iri, RDF.type, m_cls))
+          @graph << [iri, MTConnect::Device.hasCapability, s.subject]
+        end
+      end
     end
-
-    # Recurse each composition
-    #comp.each_element("./Compositions/*") do |cmp|
-    #  add_component(cmp, names, level + 1)
-    #end
 
     # Recurse each components
     iris = []

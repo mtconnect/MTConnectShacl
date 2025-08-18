@@ -235,12 +235,29 @@ module MTConnect
          label: {'en-us': 'capability'},
          type: "http://www.w3.org/2002/07/owl#Class"
 
+    term :MotionCapability,
+         label: {'en-us': 'motion capability'},
+         subClassOf: self.Capability,
+         type: "http://www.w3.org/2002/07/owl#Class"
 
-    term :Device,
-         label: {"en-us": "machine"},
-         subClassOf: [self.Component, term(onProperty: self.observes,
-                    someValuesFrom: self.Availability,
-                    type: "http://www.w3.org/2002/07/owl#Restriction")],
+    term :RevoluteMotionCapability,
+         label: {'en-us': 'revolute motion capability'},
+         subClassOf: self.MotionCapability,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
+    term :ContinuousRevoluteMotionCapability,
+         label: {'en-us': 'continuous revolute motion capability'},
+         subClassOf: self.RevoluteMotionCapability,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
+    term :IndexedRevoluteMotionCapability,
+         label: {'en-us': 'indexed revolute motion capability'},
+         subClassOf: self.RevoluteMotionCapability,
+         type: "http://www.w3.org/2002/07/owl#Class"
+
+    term :PrismaticMotionCapability,
+         label: {'en-us': 'prismatic motion capability'},
+         subClassOf: self.MotionCapability,
          type: "http://www.w3.org/2002/07/owl#Class"
 
     property :hasCapability,
@@ -255,6 +272,13 @@ module MTConnect
       domain: self.Capability,
       range: self.Component,
       inverseOf: self.hasCapability
+
+    term :Device,
+         label: {"en-us": "machine"},
+         subClassOf: [self.Component, 
+          term(onProperty: self.observes, type: "http://www.w3.org/2002/07/owl#Restriction", someValuesFrom: self.Availability), 
+          term(onProperty: self.hasCapability, someValuesFrom: self.Capability, type: "http://www.w3.org/2002/07/owl#Restriction")],
+         type: "http://www.w3.org/2002/07/owl#Class"
 
     term :_alldis1, type: RDF::OWL.AllDisjointClasses,
       "http://www.w3.org/2002/07/owl#members": list(self.ElectricalSystem, self.HydraulicSystem, self.LubricationSystem, self.PneumaticSystem)
