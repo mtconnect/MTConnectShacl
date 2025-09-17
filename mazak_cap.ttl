@@ -1,0 +1,662 @@
+@prefix : <http://example.com/data/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/construct/> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix data: <http://example.com/data/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfv: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@base <http://example.com/data/> .
+
+<http://example.com/data/> rdfv:type owl:Ontology ;
+                            owl:imports <https://purl.mtconnect.org/ontology/Capability/> ;
+                            rdfs:label "MTConnect Ontology"@en-us ,
+                                       "Machine Ontology"@en-us .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/construct/componentOf
+mt:componentOf rdfv:type owl:ObjectProperty ;
+               owl:inverseOf mt:hasComponent ;
+               rdfs:domain mt:Component ;
+               rdfs:range mt:Component ;
+               rdfs:label "has component"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/hasCapability
+mt:hasCapability rdfv:type owl:ObjectProperty ;
+                 owl:inverseOf mt:isCapabilityOf ;
+                 rdfs:domain mt:Component ;
+                 rdfs:range mt:Capability .
+
+
+###  https://purl.mtconnect.org/ontology/construct/hasComponent
+mt:hasComponent rdfv:type owl:ObjectProperty ;
+                rdfs:domain mt:Component ;
+                rdfs:range mt:Component ;
+                rdfs:label "has component"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/isCapabilityOf
+mt:isCapabilityOf rdfv:type owl:ObjectProperty ;
+                  rdfs:domain mt:Capability ;
+                  rdfs:range mt:Component .
+
+
+###  https://purl.mtconnect.org/ontology/construct/observedBy
+mt:observedBy rdfv:type owl:ObjectProperty ;
+              owl:inverseOf mt:observes ;
+              rdfs:label "observed by"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/observes
+mt:observes rdfv:type owl:ObjectProperty ;
+            rdfs:domain mt:Component ;
+            rdfs:range mt:DataItem ;
+            rdfs:label "observes"@en-us .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/construct/hasIdentifier
+mt:hasIdentifier rdfv:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "has identifier"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/hasName
+mt:hasName rdfv:type owl:DatatypeProperty ;
+           rdfs:range xsd:string ;
+           rdfs:label "has name"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/hasUnits
+mt:hasUnits rdfv:type owl:DatatypeProperty ;
+            rdfs:range xsd:string ;
+            rdfs:label "has units"@en-us .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/construct/Axes
+mt:Axes rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Component ,
+                        [ rdfv:type owl:Restriction ;
+                          owl:onProperty mt:hasComponent ;
+                          owl:someValuesFrom mt:Axis
+                        ] ;
+        rdfs:label "axes"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Axis
+mt:Axis rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Component ;
+        rdfs:label "axis"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Ballscrew
+mt:Ballscrew rdfv:type owl:Class ;
+             rdfs:subClassOf mt:Component ;
+             rdfs:label "ballscrew"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Capability
+mt:Capability rdfv:type owl:Class ;
+              rdfs:label "capability"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Component
+mt:Component rdfv:type owl:Class ;
+             rdfs:label "component"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ComputeAvailability
+mt:ComputeAvailability owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                  [ rdfv:type owl:Restriction ;
+                                                                    owl:onProperty mt:isCapabilityOf ;
+                                                                    owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                              [ rdfv:type owl:Restriction ;
+                                                                                                                owl:onProperty mt:hasComponent ;
+                                                                                                                owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                                                                          [ rdfv:type owl:Restriction ;
+                                                                                                                                                            owl:onProperty mt:hasComponent ;
+                                                                                                                                                            owl:someValuesFrom [ owl:intersectionOf ( mt:Path
+                                                                                                                                                                                                      [ rdfv:type owl:Restriction ;
+                                                                                                                                                                                                        owl:onProperty mt:observes ;
+                                                                                                                                                                                                        owl:someValuesFrom mt:ControllerMode
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                                      [ rdfv:type owl:Restriction ;
+                                                                                                                                                                                                        owl:onProperty mt:observes ;
+                                                                                                                                                                                                        owl:someValuesFrom mt:Execution
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                                    ) ;
+                                                                                                                                                                                 rdfv:type owl:Class
+                                                                                                                                                                               ]
+                                                                                                                                                          ]
+                                                                                                                                                        ) ;
+                                                                                                                                     rdfv:type owl:Class
+                                                                                                                                   ]
+                                                                                                              ]
+                                                                                                            ) ;
+                                                                                         rdfv:type owl:Class
+                                                                                       ]
+                                                                  ]
+                                                                ) ;
+                                             rdfv:type owl:Class
+                                           ] .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Condition
+mt:Condition rdfv:type owl:Class ;
+             rdfs:subClassOf mt:DataItem ;
+             rdfs:label "condition"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Controller
+mt:Controller rdfv:type owl:Class ;
+              rdfs:subClassOf mt:Component ;
+              rdfs:label "controller"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ControllerMode
+mt:ControllerMode rdfv:type owl:Class ;
+                  rdfs:subClassOf mt:Event ;
+                  rdfs:label "controller mode"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ControllerModeCapability
+mt:ControllerModeCapability rdfv:type owl:Class ;
+                            owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                       [ rdfv:type owl:Restriction ;
+                                                                         owl:onProperty mt:isCapabilityOf ;
+                                                                         owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                                   [ rdfv:type owl:Restriction ;
+                                                                                                                     owl:onProperty mt:hasComponent ;
+                                                                                                                     owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                                                                               [ rdfv:type owl:Restriction ;
+                                                                                                                                                                 owl:onProperty mt:hasComponent ;
+                                                                                                                                                                 owl:someValuesFrom [ owl:intersectionOf ( mt:Path
+                                                                                                                                                                                                           [ rdfv:type owl:Restriction ;
+                                                                                                                                                                                                             owl:onProperty mt:observes ;
+                                                                                                                                                                                                             owl:someValuesFrom mt:ControllerMode
+                                                                                                                                                                                                           ]
+                                                                                                                                                                                                         ) ;
+                                                                                                                                                                                      rdfv:type owl:Class
+                                                                                                                                                                                    ]
+                                                                                                                                                               ]
+                                                                                                                                                             ) ;
+                                                                                                                                          rdfv:type owl:Class
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdfv:type owl:Class
+                                                                                            ]
+                                                                       ]
+                                                                     ) ;
+                                                  rdfv:type owl:Class
+                                                ] ;
+                            rdfs:subClassOf mt:Capability .
+
+
+###  https://purl.mtconnect.org/ontology/construct/DataItem
+mt:DataItem rdfv:type owl:Class ;
+            rdfs:label "data item"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Device
+mt:Device rdfv:type owl:Class ;
+          rdfs:subClassOf mt:Component ;
+          rdfs:label "machine"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Door
+mt:Door rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Component ;
+        rdfs:label "door"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/ElectricalSystem
+mt:ElectricalSystem rdfv:type owl:Class ;
+                    rdfs:subClassOf mt:System ;
+                    rdfs:label "electrical system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Enclosure
+mt:Enclosure rdfv:type owl:Class ;
+             rdfs:subClassOf mt:Component ;
+             rdfs:label "enclosure"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Event
+mt:Event rdfv:type owl:Class ;
+         rdfs:subClassOf mt:DataItem ;
+         rdfs:label "event"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Execution
+mt:Execution rdfv:type owl:Class ;
+             rdfs:subClassOf mt:Event ;
+             rdfs:label "execution"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/HydraulicSystem
+mt:HydraulicSystem rdfv:type owl:Class ;
+                   rdfs:subClassOf mt:System ;
+                   rdfs:label "hydraulic system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Linear
+mt:Linear rdfv:type owl:Class ;
+          rdfs:subClassOf mt:Axis ;
+          owl:disjointWith mt:Rotary ;
+          rdfs:label "linear motion system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Link
+mt:Link rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Structure ;
+        rdfs:label "link"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/LubricationSystem
+mt:LubricationSystem rdfv:type owl:Class ;
+                     rdfs:subClassOf mt:System ;
+                     rdfs:label "lubrication system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Motor
+mt:Motor rdfv:type owl:Class ;
+         rdfs:subClassOf mt:Component ;
+         rdfs:label "motor"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/PartOccurrence
+mt:PartOccurrence rdfv:type owl:Class ;
+                  rdfs:subClassOf mt:Component ;
+                  rdfs:label "part"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Path
+mt:Path rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Controller ;
+        rdfs:label "control system path"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/PathPosition
+mt:PathPosition rdfv:type owl:Class ;
+                rdfs:subClassOf mt:Sample ;
+                rdfs:label "path position"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/PneumaticSystem
+mt:PneumaticSystem rdfv:type owl:Class ;
+                   rdfs:subClassOf mt:System ;
+                   rdfs:label "pneumatic system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Position
+mt:Position rdfv:type owl:Class ;
+            rdfs:subClassOf mt:Sample ;
+            rdfs:label "position"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/PositionActual
+mt:PositionActual rdfv:type owl:Class ;
+                  rdfs:subClassOf mt:Position ;
+                  rdfs:label "actual position"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/PositionProgrammed
+mt:PositionProgrammed rdfv:type owl:Class ;
+                      rdfs:subClassOf mt:Position ;
+                      rdfs:label "programmed position"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Room
+mt:Room rdfv:type owl:Class ;
+        rdfs:subClassOf mt:Component ;
+        rdfs:label "room"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Rotary
+mt:Rotary rdfv:type owl:Class ;
+          rdfs:subClassOf mt:Axis ;
+          rdfs:label "rotary motion system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Sample
+mt:Sample rdfv:type owl:Class ;
+          rdfs:subClassOf mt:DataItem ;
+          rdfs:label "sample"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Sensor
+mt:Sensor rdfv:type owl:Class ;
+          rdfs:subClassOf mt:Component ;
+          rdfs:label "sensor"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/SixAxesCapability
+mt:SixAxesCapability rdfv:type owl:Class .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Stock
+mt:Stock rdfv:type owl:Class ;
+         rdfs:subClassOf mt:Component ;
+         rdfs:label "stock"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Structure
+mt:Structure rdfv:type owl:Class ;
+             rdfs:subClassOf mt:Component ;
+             rdfs:label "enclosure"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Structures
+mt:Structures rdfv:type owl:Class ;
+              rdfs:subClassOf mt:Component ;
+              rdfs:label "structure"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/System
+mt:System rdfv:type owl:Class ;
+          rdfs:subClassOf mt:Component ;
+          rdfs:label "system"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Systems
+mt:Systems rdfv:type owl:Class ;
+           rdfs:subClassOf mt:Component ;
+           rdfs:label "systems"@en-us .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.com/data/Mazak
+data:Mazak rdfv:type owl:NamedIndividual ,
+                     mt:Device ;
+           mt:hasCapability mt:Mazak-capability ;
+           mt:hasComponent data:Mazak-a ,
+                           data:Mazak-cont ,
+                           data:Mazak-door1 ,
+                           data:Mazak-enclosurem ,
+                           data:Mazak-mstruct ,
+                           data:Mazak-partocc ,
+                           data:Mazak-procstock ,
+                           data:Mazak-systems ;
+           mt:hasIdentifier "Mazak" ;
+           mt:hasName "Mazak" .
+
+
+###  http://example.com/data/Mazak-a
+data:Mazak-a rdfv:type owl:NamedIndividual ,
+                       mt:Axes ;
+             mt:hasComponent data:Mazak-a-br ,
+                             data:Mazak-a-c ,
+                             data:Mazak-a-c2 ,
+                             data:Mazak-a-x ,
+                             data:Mazak-a-y ,
+                             data:Mazak-a-z ;
+             mt:hasIdentifier "a" ;
+             mt:hasName "base" .
+
+
+###  http://example.com/data/Mazak-a-br
+data:Mazak-a-br rdfv:type owl:NamedIndividual ,
+                          mt:Rotary ;
+                mt:hasIdentifier "br" ;
+                mt:hasName "B" .
+
+
+###  http://example.com/data/Mazak-a-c
+data:Mazak-a-c rdfv:type owl:NamedIndividual ,
+                         mt:Rotary ;
+               mt:hasIdentifier "c" ;
+               mt:hasName "C1" .
+
+
+###  http://example.com/data/Mazak-a-c2
+data:Mazak-a-c2 rdfv:type owl:NamedIndividual ,
+                          mt:Rotary ;
+                mt:hasIdentifier "c2" ;
+                mt:hasName "C2" .
+
+
+###  http://example.com/data/Mazak-a-x
+data:Mazak-a-x rdfv:type owl:NamedIndividual ,
+                         mt:Linear ;
+               mt:observes data:Mazak-a-x-PositionActual ,
+                           data:Mazak-a-x-PositionProgrammed ;
+               mt:hasIdentifier "x" ;
+               mt:hasName "X" .
+
+
+###  http://example.com/data/Mazak-a-x-PositionActual
+data:Mazak-a-x-PositionActual rdfv:type owl:NamedIndividual ,
+                                        mt:PositionActual ;
+                              mt:hasIdentifier "Xabs" .
+
+
+###  http://example.com/data/Mazak-a-x-PositionProgrammed
+data:Mazak-a-x-PositionProgrammed rdfv:type owl:NamedIndividual ,
+                                            mt:PositionProgrammed ;
+                                  mt:hasIdentifier "Xpos" .
+
+
+###  http://example.com/data/Mazak-a-y
+data:Mazak-a-y rdfv:type owl:NamedIndividual ,
+                         mt:Linear ;
+               mt:observes data:Mazak-a-y-PositionActual ,
+                           data:Mazak-a-y-PositionProgrammed ;
+               mt:hasIdentifier "y" ;
+               mt:hasName "Y" .
+
+
+###  http://example.com/data/Mazak-a-y-PositionActual
+data:Mazak-a-y-PositionActual rdfv:type owl:NamedIndividual ,
+                                        mt:PositionActual ;
+                              mt:hasIdentifier "Yabs" .
+
+
+###  http://example.com/data/Mazak-a-y-PositionProgrammed
+data:Mazak-a-y-PositionProgrammed rdfv:type owl:NamedIndividual ,
+                                            mt:PositionProgrammed ;
+                                  mt:hasIdentifier "Ypos" .
+
+
+###  http://example.com/data/Mazak-a-z
+data:Mazak-a-z rdfv:type owl:NamedIndividual ,
+                         mt:Linear ;
+               mt:observes data:Mazak-a-z-PositionActual ,
+                           data:Mazak-a-z-PositionProgrammed ;
+               mt:hasIdentifier "z" ;
+               mt:hasName "Z" .
+
+
+###  http://example.com/data/Mazak-a-z-PositionActual
+data:Mazak-a-z-PositionActual rdfv:type owl:NamedIndividual ,
+                                        mt:PositionActual ;
+                              mt:hasIdentifier "Zabs" .
+
+
+###  http://example.com/data/Mazak-a-z-PositionProgrammed
+data:Mazak-a-z-PositionProgrammed rdfv:type owl:NamedIndividual ,
+                                            mt:PositionProgrammed ;
+                                  mt:hasIdentifier "Zpos" .
+
+
+###  http://example.com/data/Mazak-cont
+data:Mazak-cont rdfv:type owl:NamedIndividual ,
+                          mt:Controller ;
+                mt:hasComponent data:Mazak-cont-path1 ;
+                mt:hasIdentifier "cont" ;
+                mt:hasName "controller" .
+
+
+###  http://example.com/data/Mazak-cont-path1
+data:Mazak-cont-path1 rdfv:type owl:NamedIndividual ,
+                                mt:Path ;
+                      mt:observes data:Mazak-cont-path1-ControllerMode ,
+                                  data:Mazak-cont-path1-Execution ,
+                                  data:Mazak-cont-path1-PathPosition ;
+                      mt:hasIdentifier "path1" ;
+                      mt:hasName "path" .
+
+
+###  http://example.com/data/Mazak-cont-path1-ControllerMode
+data:Mazak-cont-path1-ControllerMode rdfv:type owl:NamedIndividual ,
+                                               mt:ControllerMode ;
+                                     mt:hasIdentifier "mode" .
+
+
+###  http://example.com/data/Mazak-cont-path1-Execution
+data:Mazak-cont-path1-Execution rdfv:type owl:NamedIndividual ,
+                                          mt:Execution ;
+                                mt:hasIdentifier "execution" .
+
+
+###  http://example.com/data/Mazak-cont-path1-PathPosition
+data:Mazak-cont-path1-PathPosition rdfv:type owl:NamedIndividual ,
+                                             mt:PathPosition ;
+                                   mt:hasIdentifier "pathpos" .
+
+
+###  http://example.com/data/Mazak-door1
+data:Mazak-door1 rdfv:type owl:NamedIndividual ,
+                           mt:Door ;
+                 mt:hasIdentifier "door1" ;
+                 mt:hasName "door" .
+
+
+###  http://example.com/data/Mazak-enclosurem
+data:Mazak-enclosurem rdfv:type owl:NamedIndividual ,
+                                mt:Enclosure ;
+                      mt:hasIdentifier "enclosurem" ;
+                      mt:hasName "enclosure" .
+
+
+###  http://example.com/data/Mazak-mstruct
+data:Mazak-mstruct rdfv:type owl:NamedIndividual ,
+                             mt:Structures ;
+                   mt:hasComponent data:Mazak-mstruct-table ,
+                                   data:Mazak-mstruct-trundle ,
+                                   data:Mazak-mstruct-xaxism ,
+                                   data:Mazak-mstruct-yaxism ,
+                                   data:Mazak-mstruct-zaxis ;
+                   mt:hasIdentifier "mstruct" .
+
+
+###  http://example.com/data/Mazak-mstruct-table
+data:Mazak-mstruct-table rdfv:type owl:NamedIndividual ,
+                                   mt:Link ;
+                         mt:hasIdentifier "table" ;
+                         mt:hasName "TABLE" .
+
+
+###  http://example.com/data/Mazak-mstruct-trundle
+data:Mazak-mstruct-trundle rdfv:type owl:NamedIndividual ,
+                                     mt:Link ;
+                           mt:hasIdentifier "trundle" ;
+                           mt:hasName "TRUNDLE" .
+
+
+###  http://example.com/data/Mazak-mstruct-xaxism
+data:Mazak-mstruct-xaxism rdfv:type owl:NamedIndividual ,
+                                    mt:Link ;
+                          mt:hasIdentifier "xaxism" ;
+                          mt:hasName "X_AXIS" .
+
+
+###  http://example.com/data/Mazak-mstruct-yaxism
+data:Mazak-mstruct-yaxism rdfv:type owl:NamedIndividual ,
+                                    mt:Link ;
+                          mt:hasIdentifier "yaxism" ;
+                          mt:hasName "Y_AXIS" .
+
+
+###  http://example.com/data/Mazak-mstruct-zaxis
+data:Mazak-mstruct-zaxis rdfv:type owl:NamedIndividual ,
+                                   mt:Link ;
+                         mt:hasIdentifier "zaxis" ;
+                         mt:hasName "Z_AXIS" .
+
+
+###  http://example.com/data/Mazak-partocc
+data:Mazak-partocc rdfv:type owl:NamedIndividual ,
+                             mt:PartOccurrence ;
+                   mt:hasIdentifier "partocc" .
+
+
+###  http://example.com/data/Mazak-procstock
+data:Mazak-procstock rdfv:type owl:NamedIndividual ,
+                               mt:Stock ;
+                     mt:hasIdentifier "procstock" ;
+                     mt:hasName "stock" .
+
+
+###  http://example.com/data/Mazak-systems
+data:Mazak-systems rdfv:type owl:NamedIndividual ,
+                             mt:Systems ;
+                   mt:hasIdentifier "systems" ;
+                   mt:hasName "systems" .
+
+
+###  https://purl.mtconnect.org/ontology/construct/Mazak-capability
+mt:Mazak-capability rdfv:type owl:NamedIndividual ,
+                              mt:Capability .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdfv:type owl:AllDisjointClasses ;
+  owl:members ( mt:ElectricalSystem
+                mt:HydraulicSystem
+                mt:LubricationSystem
+                mt:PneumaticSystem
+              )
+] .
+
+
+[ rdfv:type owl:AllDifferent ;
+  owl:distinctMembers ( data:Mazak-a-br
+                        data:Mazak-a-c
+                        data:Mazak-a-c2
+                      )
+] .
+
+
+[ rdfv:type owl:AllDifferent ;
+  owl:distinctMembers ( data:Mazak-a-br
+                        data:Mazak-a-c
+                        data:Mazak-a-c2
+                        data:Mazak-a-x
+                        data:Mazak-a-y
+                        data:Mazak-a-z
+                      )
+] .
+
+
+[ rdfv:type owl:AllDifferent ;
+  owl:distinctMembers ( data:Mazak-mstruct
+                        data:Mazak-mstruct-table
+                        data:Mazak-mstruct-trundle
+                        data:Mazak-mstruct-xaxism
+                        data:Mazak-mstruct-yaxism
+                        data:Mazak-mstruct-zaxis
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
