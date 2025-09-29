@@ -1,9 +1,0 @@
-#!/bin/sh
-set +x 
-
-docker run --rm -v $(pwd):/data -w /data \
-  -e LOGGING=-Dlog4j.configurationFile=file:/data/log4j.properties  \
-  -e JVM_ARGS=-Djena.rdfxml.catalog-files:/data/catalog-v001.xml \
-  ghcr.io/ashleycaselli/shacl:latest validate \
-  -maxiterations 10000 \
-  -noImports -shapesfile $1 -datafile $2

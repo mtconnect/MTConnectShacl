@@ -1,6 +1,0 @@
-#!/bin/sh
-
-bundle exec ruby vocab/example.rb
-bundle exec ruby mtc2rdf.rb Mazak
-bundle exec ruby mtc2rdf.rb OKUMA
-
