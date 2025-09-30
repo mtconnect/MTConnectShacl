@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="https://purl.mtconnect.org/ontology/"
+         xmlns="https://purl.mtconnect.org/ontology/">
+
+<owl:Ontology rdf:about=""/>
+<owl:ObjectProperty rdf:about="observes">
+  <rdfs:domain rdf:resource="Component"/>
+  <rdfs:range rdf:resource="Observable"/>
+  <owl:inverseOf rdf:resource="observedBy"/>
+  <rdfs:label xml:lang="en">observes</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="hasComponent">
+  <rdfs:domain rdf:resource="Component"/>
+  <rdfs:range rdf:resource="Component"/>
+  <owl:inverseOf rdf:resource="componentOf"/>
+  <rdfs:label xml:lang="en">has component</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="observedBy">
+  <owl:inverseOf rdf:resource="observes"/>
+  <rdfs:label xml:lang="en">observed by</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="componentOf">
+  <owl:inverseOf rdf:resource="hasComponent"/>
+  <rdfs:label xml:lang="en">component of</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="hasReference">
+  <rdfs:domain rdf:resource="Component"/>
+  <rdfs:range rdf:resource="Component"/>
+  <owl:inverseOf rdf:resource="referenceOf"/>
+  <rdfs:label xml:lang="en">has reference</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="referenceOf">
+  <owl:inverseOf rdf:resource="hasReference"/>
+  <rdfs:label xml:lang="en">reference of</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="hasName">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label xml:lang="en">has name</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="hasId">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label xml:lang="en">has id</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="hasUUID">
+  <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:label xml:lang="en">has uuid</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="Observable">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasId"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasName"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label xml:lang="en">Observable</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Event">
+  <rdfs:subClassOf rdf:resource="Observable"/>
+  <rdfs:label xml:lang="en">Event</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Sample">
+  <rdfs:subClassOf rdf:resource="Observable"/>
+  <rdfs:label xml:lang="en">Sample</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Condition">
+  <rdfs:subClassOf rdf:resource="Observable"/>
+  <rdfs:label xml:lang="en">Condition</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Position">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Position</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PositionActual">
+  <rdfs:subClassOf rdf:resource="Position"/>
+  <rdfs:label xml:lang="en">Position Actual</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PositionCommanded">
+  <rdfs:subClassOf rdf:resource="Position"/>
+  <rdfs:label xml:lang="en">Position Commanded</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Angle">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Angle</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AngleActual">
+  <rdfs:subClassOf rdf:resource="Angle"/>
+  <rdfs:label xml:lang="en">Angle Actual</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AngleCommanded">
+  <rdfs:subClassOf rdf:resource="Angle"/>
+  <rdfs:label xml:lang="en">Angle Commanded</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathFeedrate">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Path Feedrate</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathPosition">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Path Position</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Load">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Load</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Temperature">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Temperature</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AngularVelocity">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Angular Velocity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="RotaryVelocity">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Rotary Velocity</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="RotaryVelocityActual">
+  <rdfs:subClassOf rdf:resource="RotaryVelocity"/>
+  <rdfs:label xml:lang="en">Rotary Velocity Actual</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="RotaryVelocityCommanded">
+  <rdfs:subClassOf rdf:resource="RotaryVelocity"/>
+  <rdfs:label xml:lang="en">Rotary Velocity Commanded</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathFeedrateOverride">
+  <rdfs:subClassOf rdf:resource="Sample"/>
+  <rdfs:label xml:lang="en">Path Feedrate Override</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathFeedrateOverrideRapid">
+  <rdfs:subClassOf rdf:resource="PathFeedrateOverride"/>
+  <rdfs:label xml:lang="en">Path Feedrate Override Rapid</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathFeedrateOverrideProgrammed">
+  <rdfs:subClassOf rdf:resource="PathFeedrateOverride"/>
+  <rdfs:label xml:lang="en">Path Feedrate Override Programmed</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Availability">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Availability</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AssetChanged">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Asset Changed</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AssetRemoved">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Asset Removed</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AssetAdded">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Asset Added</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Execution">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Execution</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="ControllerMode">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Controller Mode</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="AxisState">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Axis State</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="LineNumber">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Line Number</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="LineLabel">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Line Label</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="SystemCondition">
+  <rdfs:subClassOf rdf:resource="Condition"/>
+  <rdfs:label xml:lang="en">System Condition</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="TemperatureCondition">
+  <rdfs:subClassOf rdf:resource="Condition"/>
+  <rdfs:label xml:lang="en">Temperature Condition</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PositionCondition">
+  <rdfs:subClassOf rdf:resource="Condition"/>
+  <rdfs:label xml:lang="en">Position Condition</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Asset">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="en">Asset</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Component">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasId"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasName"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasUUID"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasComponent"/>
+      <owl:someValuesFrom rdf:resource="Component"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="observes"/>
+      <owl:someValuesFrom rdf:resource="Observable"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label xml:lang="en">Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Device">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Device</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Axis">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Axis</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Linear">
+  <rdfs:subClassOf rdf:resource="Axis"/>
+  <rdfs:label xml:lang="en">Linear Axis</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Rotary">
+  <rdfs:subClassOf rdf:resource="Axis"/>
+  <rdfs:label xml:lang="en">Rotary Axis</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Controller">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Controller</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Path">
+  <rdfs:subClassOf rdf:resource="Controller"/>
+  <rdfs:label xml:lang="en">Path</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="System">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Elecric">
+  <rdfs:subClassOf rdf:resource="System"/>
+  <rdfs:label xml:lang="en">Electric System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Hydraulic">
+  <rdfs:subClassOf rdf:resource="System"/>
+  <rdfs:label xml:lang="en">Hydraulic System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Pneumatic">
+  <rdfs:subClassOf rdf:resource="System"/>
+  <rdfs:label xml:lang="en">Pneumatic System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Coolant">
+  <rdfs:subClassOf rdf:resource="System"/>
+  <rdfs:label xml:lang="en">Coolant System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Lubrication">
+  <rdfs:subClassOf rdf:resource="System"/>
+  <rdfs:label xml:lang="en">Lubrication System</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Auxiliary">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Auxiliary</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Environmental">
+  <rdfs:subClassOf rdf:resource="Auxiliary"/>
+  <rdfs:label xml:lang="en">Environmental Auxiliary</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Resource">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Resource</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Personnel">
+  <rdfs:subClassOf rdf:resource="Resource"/>
+  <rdfs:label xml:lang="en">Personnel Resource</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Material">
+  <rdfs:subClassOf rdf:resource="Resource"/>
+  <rdfs:label xml:lang="en">Material Resource</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Stock">
+  <rdfs:subClassOf rdf:resource="Material"/>
+  <rdfs:label xml:lang="en">Stock Material Resource</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Enclosure">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Enclosure</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Aggregator">
+  <rdfs:subClassOf rdf:resource="Component"/>
+  <rdfs:label xml:lang="en">Aggregator</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Axes">
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Axes</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Systems">
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Systems</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Auxieliaries">
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Auxiliaries</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Resources">
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Resources</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Materials">
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Materials</rdfs:label>
+</owl:Class>
+
+
+</rdf:RDF>

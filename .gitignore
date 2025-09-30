@@ -1,9 +1,6 @@
 *~
-vendor
-bin
-Gemfile.lock
-.ruby-version
-.bundle
+venv
+.python-version
 \#*
 \.#*
 __pycache__

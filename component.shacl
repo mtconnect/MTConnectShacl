@@ -1,0 +1,26 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+
+mt:MustHaveComponentOrDataItemOrReference
+    a sh:NodeShape ;
+    sh:message "`Component` **MUST** have at least one of `Component`, `DataItem` or  `Reference` entities." ;
+    sh:targetClass mt:Component ;
+    sh:or (
+        [ sh:property [
+            sh:path mt:hasComponent ;
+            sh:minCount 1 ;
+            sh:class mt:Component ;
+        ] ]
+        [ sh:property [
+            sh:path mt:observes ;
+            sh:minCount 1 ;
+            sh:class mt:Observable ;
+        ] ]
+        [ sh:property [
+            sh:path mt:hasReference ;
+            sh:minCount 1 ;
+            sh:class mt:Reference ;
+        ] ]
+    ) .
