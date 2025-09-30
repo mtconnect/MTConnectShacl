@@ -32,8 +32,6 @@ with open(file_name, 'r') as file:
     trans.convert()
     trans.write()
 
-
-
 data_graph = "Mazak-Data.rdf"
 ont_graph = "mtconnect.rdf"
 

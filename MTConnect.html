@@ -1,0 +1,609 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>ontology Ontology</title>
+    <style>
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: white;
+  color: black;
+}
+
+:root {
+  --link-color: #1a0dab; /* light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --link-color: #d8b8ff; /* soft purple for dark mode */
+  }
+  body {
+    background: black;
+    color: white;
+  }
+}
+
+a {
+  color: var(--link-color);
+}
+
+h1 {
+  font-size: 1.35em;
+  border: none;
+  border-top: 2px solid #bbb;
+  margin: 1em 0 0em 0;
+  padding-top: 0.25em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+div.tree div {
+  margin-left: 1.5em;
+}
+
+div.tree div.axiom {
+  margin-left: 1.5em;
+}
+
+div.tree div.details {
+  margin-left: 2.5em;
+}
+
+div.axiom ul {
+  margin: 0;
+}
+
+div.axiom ul li {
+  font-family: 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  font-size: 1em;
+}
+
+.indent {
+  margin-left: 3em;
+}
+    </style>
+  </head>
+  <body>
+<h1 id="Data properties">Data properties</h1>
+<h2 id="hasName">hasName</h2>
+<ul><li class="axiom">domain: ⊤</li>
+<li class="axiom">range: xsd:string</li></ul>
+<h2 id="hasId">hasId</h2>
+<ul><li class="axiom">domain: ⊤</li>
+<li class="axiom">range: xsd:string</li></ul>
+<h2 id="hasUUID">hasUUID</h2>
+<ul><li class="axiom">domain: ⊤</li>
+<li class="axiom">range: xsd:string</li></ul>
+<h1 id="Object properties">Object properties</h1>
+<h2 id="hasCapability">hasCapability</h2>
+<ul><li class="axiom">domain: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">range: <a href='MTConnect.html#Capability'>_:Capability</a></li>
+<li class="axiom">inverse: <a href='MTConnect.html#isCapabilityOf'>_:isCapabilityOf</a></li></ul>
+<h2 id="isCapabilityOf">isCapabilityOf</h2>
+<ul><li class="axiom">inverse: <a href='MTConnect.html#hasCapability'>_:hasCapability</a></li></ul>
+<h2 id="observes">observes</h2>
+<ul><li class="axiom">domain: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">range: <a href='MTConnect.html#Observable'>_:Observable</a></li>
+<li class="axiom">inverse: <a href='MTConnect.html#observedBy'>_:observedBy</a></li></ul>
+<h2 id="observedBy">observedBy</h2>
+<ul><li class="axiom">inverse: <a href='MTConnect.html#observes'>_:observes</a></li></ul>
+<h2 id="hasComponent">hasComponent</h2>
+<ul><li class="axiom">domain: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">range: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">inverse: <a href='MTConnect.html#isComponentOf'>_:isComponentOf</a></li></ul>
+<h2 id="isComponentOf">isComponentOf</h2>
+<ul><li class="axiom">inverse: <a href='MTConnect.html#hasComponent'>_:hasComponent</a></li></ul>
+<h2 id="hasReference">hasReference</h2>
+<ul><li class="axiom">domain: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">range: <a href='MTConnect.html#Component'>_:Component</a></li>
+<li class="axiom">inverse: <a href='MTConnect.html#referenceOf'>_:referenceOf</a></li></ul>
+<h2 id="referenceOf">referenceOf</h2>
+<ul><li class="axiom">inverse: <a href='MTConnect.html#hasReference'>_:hasReference</a></li></ul>
+<h1 id="Classes">Classes</h1>
+<div class="tree"><div id="Thing">
+  <details open><summary>_:Thing</summary>
+    <div id="Component">
+      <details open><summary><a href='MTConnect.html#Component'>_:Component</a></summary>
+        <div class="details"><details><summary>Details</summary>
+        <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Component</li>        </ul></details></div>
+        <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ⊤</li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#hasId'>_:hasId</a> .xsd:string</li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#hasName'>_:hasName</a> .xsd:string</li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#hasUUID'>_:hasUUID</a> .xsd:string</li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#hasComponent'>_:hasComponent</a> .<a href='MTConnect.html#Component'>_:Component</a></li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#observes'>_:observes</a> .<a href='MTConnect.html#Observable'>_:Observable</a></li><li><a href='MTConnect.html#Component'>_:Component</a> ⊑ ∃ <a href='MTConnect.html#hasCapability'>_:hasCapability</a> .<a href='MTConnect.html#Capability'>_:Capability</a></li></ul></details></div>
+        </details></div>
+        <div id="Device">
+          <details open><summary><a href='MTConnect.html#Device'>_:Device</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Device</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Device'>_:Device</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+          </details>
+        </div>
+        <div id="Axis">
+          <details open><summary><a href='MTConnect.html#Axis'>_:Axis</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Axis</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Axis'>_:Axis</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Linear">
+              <details open><summary><a href='MTConnect.html#Linear'>_:Linear</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Linear Axis</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Linear'>_:Linear</a> ⊑ <a href='MTConnect.html#Axis'>_:Axis</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Rotary">
+              <details open><summary><a href='MTConnect.html#Rotary'>_:Rotary</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Rotary Axis</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Rotary'>_:Rotary</a> ⊑ <a href='MTConnect.html#Axis'>_:Axis</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Controller">
+          <details open><summary><a href='MTConnect.html#Controller'>_:Controller</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Controller</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Controller'>_:Controller</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Path">
+              <details open><summary><a href='MTConnect.html#Path'>_:Path</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Path'>_:Path</a> ⊑ <a href='MTConnect.html#Controller'>_:Controller</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="System">
+          <details open><summary><a href='MTConnect.html#System'>_:System</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: System</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#System'>_:System</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Elecric">
+              <details open><summary><a href='MTConnect.html#Elecric'>_:Elecric</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Electric System</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Elecric'>_:Elecric</a> ⊑ <a href='MTConnect.html#System'>_:System</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Hydraulic">
+              <details open><summary><a href='MTConnect.html#Hydraulic'>_:Hydraulic</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Hydraulic System</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Hydraulic'>_:Hydraulic</a> ⊑ <a href='MTConnect.html#System'>_:System</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Pneumatic">
+              <details open><summary><a href='MTConnect.html#Pneumatic'>_:Pneumatic</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Pneumatic System</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Pneumatic'>_:Pneumatic</a> ⊑ <a href='MTConnect.html#System'>_:System</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Coolant">
+              <details open><summary><a href='MTConnect.html#Coolant'>_:Coolant</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Coolant System</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Coolant'>_:Coolant</a> ⊑ <a href='MTConnect.html#System'>_:System</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Lubrication">
+              <details open><summary><a href='MTConnect.html#Lubrication'>_:Lubrication</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Lubrication System</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Lubrication'>_:Lubrication</a> ⊑ <a href='MTConnect.html#System'>_:System</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Auxiliary">
+          <details open><summary><a href='MTConnect.html#Auxiliary'>_:Auxiliary</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Auxiliary</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Auxiliary'>_:Auxiliary</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Environmental">
+              <details open><summary><a href='MTConnect.html#Environmental'>_:Environmental</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Environmental Auxiliary</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Environmental'>_:Environmental</a> ⊑ <a href='MTConnect.html#Auxiliary'>_:Auxiliary</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Resource">
+          <details open><summary><a href='MTConnect.html#Resource'>_:Resource</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Resource</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Resource'>_:Resource</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Personnel">
+              <details open><summary><a href='MTConnect.html#Personnel'>_:Personnel</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Personnel Resource</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Personnel'>_:Personnel</a> ⊑ <a href='MTConnect.html#Resource'>_:Resource</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Materials">
+              <details open><summary><a href='MTConnect.html#Materials'>_:Materials</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Materials</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Materials'>_:Materials</a> ⊑ <a href='MTConnect.html#Resource'>_:Resource</a></li><li><a href='MTConnect.html#Materials'>_:Materials</a> ⊑ <a href='MTConnect.html#Aggregator'>_:Aggregator</a></li></ul></details></div>
+                </details></div>
+                <div id="Stock">
+                  <details open><summary><a href='MTConnect.html#Stock'>_:Stock</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Stock Material Resource</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Stock'>_:Stock</a> ⊑ <a href='MTConnect.html#Materials'>_:Materials</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Aggregator">
+          <details open><summary><a href='MTConnect.html#Aggregator'>_:Aggregator</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Aggregator</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Aggregator'>_:Aggregator</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+            <div id="Axes">
+              <details open><summary><a href='MTConnect.html#Axes'>_:Axes</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Axes</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Axes'>_:Axes</a> ⊑ <a href='MTConnect.html#Aggregator'>_:Aggregator</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Systems">
+              <details open><summary><a href='MTConnect.html#Systems'>_:Systems</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Systems</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Systems'>_:Systems</a> ⊑ <a href='MTConnect.html#Aggregator'>_:Aggregator</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Auxieliaries">
+              <details open><summary><a href='MTConnect.html#Auxieliaries'>_:Auxieliaries</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Auxiliaries</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Auxieliaries'>_:Auxieliaries</a> ⊑ <a href='MTConnect.html#Aggregator'>_:Aggregator</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Resources">
+              <details open><summary><a href='MTConnect.html#Resources'>_:Resources</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Resources</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Resources'>_:Resources</a> ⊑ <a href='MTConnect.html#Aggregator'>_:Aggregator</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Enclosure">
+          <details open><summary><a href='MTConnect.html#Enclosure'>_:Enclosure</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Enclosure</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Enclosure'>_:Enclosure</a> ⊑ <a href='MTConnect.html#Component'>_:Component</a></li></ul></details></div>
+            </details></div>
+          </details>
+        </div>
+      </details>
+    </div>
+    <div id="Capability">
+      <details open><summary><a href='MTConnect.html#Capability'>_:Capability</a></summary>
+        <div class="details"><details><summary>Details</summary>
+        <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Capability</li>        </ul></details></div>
+        <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Capability'>_:Capability</a> ⊑ ⊤</li></ul></details></div>
+        </details></div>
+      </details>
+    </div>
+    <div id="Observable">
+      <details open><summary><a href='MTConnect.html#Observable'>_:Observable</a></summary>
+        <div class="details"><details><summary>Details</summary>
+        <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Observable</li>        </ul></details></div>
+        <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Observable'>_:Observable</a> ⊑ ⊤</li><li><a href='MTConnect.html#Observable'>_:Observable</a> ⊑ ∃ <a href='MTConnect.html#hasId'>_:hasId</a> .xsd:string</li><li><a href='MTConnect.html#Observable'>_:Observable</a> ⊑ ∃ <a href='MTConnect.html#hasName'>_:hasName</a> .xsd:string</li></ul></details></div>
+        </details></div>
+        <div id="Event">
+          <details open><summary><a href='MTConnect.html#Event'>_:Event</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Event</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Event'>_:Event</a> ⊑ <a href='MTConnect.html#Observable'>_:Observable</a></li></ul></details></div>
+            </details></div>
+            <div id="Availability">
+              <details open><summary><a href='MTConnect.html#Availability'>_:Availability</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Availability</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Availability'>_:Availability</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="AssetChanged">
+              <details open><summary><a href='MTConnect.html#AssetChanged'>_:AssetChanged</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Asset Changed</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AssetChanged'>_:AssetChanged</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="AssetRemoved">
+              <details open><summary><a href='MTConnect.html#AssetRemoved'>_:AssetRemoved</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Asset Removed</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AssetRemoved'>_:AssetRemoved</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="AssetAdded">
+              <details open><summary><a href='MTConnect.html#AssetAdded'>_:AssetAdded</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Asset Added</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AssetAdded'>_:AssetAdded</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Execution">
+              <details open><summary><a href='MTConnect.html#Execution'>_:Execution</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Execution</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Execution'>_:Execution</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="ControllerMode">
+              <details open><summary><a href='MTConnect.html#ControllerMode'>_:ControllerMode</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Controller Mode</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#ControllerMode'>_:ControllerMode</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="AxisState">
+              <details open><summary><a href='MTConnect.html#AxisState'>_:AxisState</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Axis State</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AxisState'>_:AxisState</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="LineNumber">
+              <details open><summary><a href='MTConnect.html#LineNumber'>_:LineNumber</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Line Number</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#LineNumber'>_:LineNumber</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="LineLabel">
+              <details open><summary><a href='MTConnect.html#LineLabel'>_:LineLabel</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Line Label</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#LineLabel'>_:LineLabel</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Material">
+              <details open><summary><a href='MTConnect.html#Material'>_:Material</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Material</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Material'>_:Material</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="User">
+              <details open><summary><a href='MTConnect.html#User'>_:User</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: User</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#User'>_:User</a> ⊑ <a href='MTConnect.html#Event'>_:Event</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Sample">
+          <details open><summary><a href='MTConnect.html#Sample'>_:Sample</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Sample</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Sample'>_:Sample</a> ⊑ <a href='MTConnect.html#Observable'>_:Observable</a></li></ul></details></div>
+            </details></div>
+            <div id="Position">
+              <details open><summary><a href='MTConnect.html#Position'>_:Position</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Position</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Position'>_:Position</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+                <div id="PositionActual">
+                  <details open><summary><a href='MTConnect.html#PositionActual'>_:PositionActual</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Position Actual</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PositionActual'>_:PositionActual</a> ⊑ <a href='MTConnect.html#Position'>_:Position</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+                <div id="PositionCommanded">
+                  <details open><summary><a href='MTConnect.html#PositionCommanded'>_:PositionCommanded</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Position Commanded</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PositionCommanded'>_:PositionCommanded</a> ⊑ <a href='MTConnect.html#Position'>_:Position</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+              </details>
+            </div>
+            <div id="Angle">
+              <details open><summary><a href='MTConnect.html#Angle'>_:Angle</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Angle</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Angle'>_:Angle</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+                <div id="AngleActual">
+                  <details open><summary><a href='MTConnect.html#AngleActual'>_:AngleActual</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Angle Actual</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AngleActual'>_:AngleActual</a> ⊑ <a href='MTConnect.html#Angle'>_:Angle</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+                <div id="AngleCommanded">
+                  <details open><summary><a href='MTConnect.html#AngleCommanded'>_:AngleCommanded</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Angle Commanded</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AngleCommanded'>_:AngleCommanded</a> ⊑ <a href='MTConnect.html#Angle'>_:Angle</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+              </details>
+            </div>
+            <div id="PathFeedrate">
+              <details open><summary><a href='MTConnect.html#PathFeedrate'>_:PathFeedrate</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path Feedrate</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PathFeedrate'>_:PathFeedrate</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="PathPosition">
+              <details open><summary><a href='MTConnect.html#PathPosition'>_:PathPosition</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path Position</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PathPosition'>_:PathPosition</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Load">
+              <details open><summary><a href='MTConnect.html#Load'>_:Load</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Load</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Load'>_:Load</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="Temperature">
+              <details open><summary><a href='MTConnect.html#Temperature'>_:Temperature</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Temperature</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Temperature'>_:Temperature</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="AngularVelocity">
+              <details open><summary><a href='MTConnect.html#AngularVelocity'>_:AngularVelocity</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Angular Velocity</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#AngularVelocity'>_:AngularVelocity</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="RotaryVelocity">
+              <details open><summary><a href='MTConnect.html#RotaryVelocity'>_:RotaryVelocity</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Rotary Velocity</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#RotaryVelocity'>_:RotaryVelocity</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+                <div id="RotaryVelocityActual">
+                  <details open><summary><a href='MTConnect.html#RotaryVelocityActual'>_:RotaryVelocityActual</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Rotary Velocity Actual</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#RotaryVelocityActual'>_:RotaryVelocityActual</a> ⊑ <a href='MTConnect.html#RotaryVelocity'>_:RotaryVelocity</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+                <div id="RotaryVelocityCommanded">
+                  <details open><summary><a href='MTConnect.html#RotaryVelocityCommanded'>_:RotaryVelocityCommanded</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Rotary Velocity Commanded</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#RotaryVelocityCommanded'>_:RotaryVelocityCommanded</a> ⊑ <a href='MTConnect.html#RotaryVelocity'>_:RotaryVelocity</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+              </details>
+            </div>
+            <div id="PathFeedrateOverride">
+              <details open><summary><a href='MTConnect.html#PathFeedrateOverride'>_:PathFeedrateOverride</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path Feedrate Override</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PathFeedrateOverride'>_:PathFeedrateOverride</a> ⊑ <a href='MTConnect.html#Sample'>_:Sample</a></li></ul></details></div>
+                </details></div>
+                <div id="PathFeedrateOverrideRapid">
+                  <details open><summary><a href='MTConnect.html#PathFeedrateOverrideRapid'>_:PathFeedrateOverrideRapid</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path Feedrate Override Rapid</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PathFeedrateOverrideRapid'>_:PathFeedrateOverrideRapid</a> ⊑ <a href='MTConnect.html#PathFeedrateOverride'>_:PathFeedrateOverride</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+                <div id="PathFeedrateOverrideProgrammed">
+                  <details open><summary><a href='MTConnect.html#PathFeedrateOverrideProgrammed'>_:PathFeedrateOverrideProgrammed</a></summary>
+                    <div class="details"><details><summary>Details</summary>
+                    <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Path Feedrate Override Programmed</li>                    </ul></details></div>
+                    <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PathFeedrateOverrideProgrammed'>_:PathFeedrateOverrideProgrammed</a> ⊑ <a href='MTConnect.html#PathFeedrateOverride'>_:PathFeedrateOverride</a></li></ul></details></div>
+                    </details></div>
+                  </details>
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <div id="Condition">
+          <details open><summary><a href='MTConnect.html#Condition'>_:Condition</a></summary>
+            <div class="details"><details><summary>Details</summary>
+            <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Condition</li>            </ul></details></div>
+            <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Condition'>_:Condition</a> ⊑ <a href='MTConnect.html#Observable'>_:Observable</a></li></ul></details></div>
+            </details></div>
+            <div id="SystemCondition">
+              <details open><summary><a href='MTConnect.html#SystemCondition'>_:SystemCondition</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: System Condition</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#SystemCondition'>_:SystemCondition</a> ⊑ <a href='MTConnect.html#Condition'>_:Condition</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="TemperatureCondition">
+              <details open><summary><a href='MTConnect.html#TemperatureCondition'>_:TemperatureCondition</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Temperature Condition</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#TemperatureCondition'>_:TemperatureCondition</a> ⊑ <a href='MTConnect.html#Condition'>_:Condition</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+            <div id="PositionCondition">
+              <details open><summary><a href='MTConnect.html#PositionCondition'>_:PositionCondition</a></summary>
+                <div class="details"><details><summary>Details</summary>
+                <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Position Condition</li>                </ul></details></div>
+                <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#PositionCondition'>_:PositionCondition</a> ⊑ <a href='MTConnect.html#Condition'>_:Condition</a></li></ul></details></div>
+                </details></div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </details>
+    </div>
+    <div id="Asset">
+      <details open><summary><a href='MTConnect.html#Asset'>_:Asset</a></summary>
+        <div class="details"><details><summary>Details</summary>
+        <div class="axiom"><details><summary>Annotations</summary><ul><li>label: Asset</li>        </ul></details></div>
+        <div class="axiom"><details><summary>Axioms</summary><ul><li><a href='MTConnect.html#Asset'>_:Asset</a> ⊑ ⊤</li></ul></details></div>
+        </details></div>
+      </details>
+    </div>
+  </details>
+</div>
+</div>
+  </body>
+</html>

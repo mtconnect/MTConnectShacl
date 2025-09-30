@@ -18,9 +18,10 @@ val:DeviceMustHaveAvailability
 
 val:DeviceMustHaveAssetChanged
     a sh:NodeShape ;
-    sh:message "Device must have asset changed." ;
     sh:targetClass mt:Device ;
     sh:property [
+          sh:severity sh:Warning ;
+          sh:message "Device must have asset changed." ;
           sh:path mt:observes ;
           sh:qualifiedValueShape [
               sh:class mt:AssetChanged ;
@@ -31,9 +32,10 @@ val:DeviceMustHaveAssetChanged
 
 val:DeviceMustHaveAssetRemoved
     a sh:NodeShape ;
-    sh:message "Device must have asset removed." ;
     sh:targetClass mt:Device ;
     sh:property [
+          sh:severity sh:Warning ;
+          sh:message "Device must have asset removed." ;
           sh:path mt:observes ;
           sh:qualifiedValueShape [
               sh:class mt:AssetRemoved ;
