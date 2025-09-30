@@ -19,6 +19,9 @@ class MTConnectToOnto:
     print(self.root.tag)
     ns = self.root.tag[1:].split('}')[0]
     self.ns = {'m': ns }
+    self.header = self.root.find("./m:Header", self.ns)
+    self.asset_buffer_size = int(self.header.get('assetBufferSize', 0))
+    self.asset_count = int(self.header.get('assetCount', 0))
 
   @log_indent
   def convert(self):
@@ -31,7 +34,7 @@ class MTConnectToOnto:
     self.Data.imported_ontologies.append(MTConnect)
 
     logger.info(f"Converting device: {self.device.name} ")
-    partics = MTConnectToParticulars(self.device, self.Data)
+    partics = MTConnectToParticulars(self.device, self.Data, self.asset_buffer_size, self.asset_count)
     partics.convert()
             
   def write(self):

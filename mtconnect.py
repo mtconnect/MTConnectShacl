@@ -28,7 +28,7 @@ with MTConnect:
     label = owl.locstr("has uuid", "en")
     domain = [owl.Thing]
     range = [str]
-        
+  
   # Data Items/Observables
   class Observable(owl.Thing):
     """An observable in the MTConnect ontology."""
@@ -234,6 +234,18 @@ with MTConnect:
     """A device in the MTConnect ontology."""
     label = owl.locstr("Device", "en")
     subclass_of = [observes.some(Availability)]
+    
+  class hasAssetCount(owl.DataProperty):
+    """A property indicating the asset count of a device."""
+    label = owl.locstr("has asset count", "en")
+    domain = [Device]
+    range = [int]
+  
+  class hasAssetBufferSize(owl.DataProperty):
+    """A property indicating the buffer size of a device."""
+    label = owl.locstr("has buffer size", "en")
+    domain = [Device]
+    range = [int]
     
   class Axis(Component):
     """An axis in the MTConnect ontology."""

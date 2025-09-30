@@ -1,0 +1,20 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+
+val:AssetCountShouldBeLessThanAssetBufferSize
+    a sh:NodeShape ;
+    sh:targetClass mt:Device ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:prefixes mt: ;
+      sh:message "The `assetCount` **SHOULD** be less than the `assetBufferSize`." ;
+      sh:select """
+        SELECT $this ?assetCount ?assetBufferSize WHERE {
+            $this <https://purl.mtconnect.org/ontology/hasAssetCount> ?assetCount .
+            $this <https://purl.mtconnect.org/ontology/hasAssetBufferSize> ?assetBufferSize .
+            FILTER (?assetCount >= ?assetBufferSize)
+        }
+      """ ;
+    ] .

@@ -10,10 +10,12 @@ from mappings import *
 logger = logging.getLogger(__name__)
 
 class MTConnectToParticulars:
-  def __init__(self, device, data):
+  def __init__(self, device, data, size, count):
     self.ns = device.ns
     self.device = device
     self.Data = data
+    self.asset_buffer_size = size
+    self.asset_count = count
 
     self.particulars = dict()
     self.motion = dict()
@@ -21,7 +23,10 @@ class MTConnectToParticulars:
   def convert(self):
     """Convert the MTConnect device to an ontology."""
     names = [self.device.name, self.device.serial]
-    self._add_component(self.device.element, names)
+    device = self._add_component(self.device.element, names)
+    device.hasAssetBufferSize.append(self.asset_buffer_size)
+    device.hasAssetCount.append(self.asset_count)
+    
     # self._add_relationships(self.device.element)
     return self.particulars
   

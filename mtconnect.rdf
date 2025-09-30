@@ -73,6 +73,18 @@
   <rdfs:label xml:lang="en">has uuid</rdfs:label>
 </owl:DatatypeProperty>
 
+<owl:DatatypeProperty rdf:about="hasAssetCount">
+  <rdfs:domain rdf:resource="Device"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label xml:lang="en">has asset count</rdfs:label>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="hasAssetBufferSize">
+  <rdfs:domain rdf:resource="Device"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  <rdfs:label xml:lang="en">has buffer size</rdfs:label>
+</owl:DatatypeProperty>
+
 <owl:Class rdf:about="Observable">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf>
