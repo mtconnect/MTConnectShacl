@@ -1,0 +1,43 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+
+val:DeviceMustHaveAvailability
+    a sh:NodeShape ;
+    sh:message "Device must have availability." ;
+    sh:targetClass mt:Device ;
+    sh:property [
+          sh:path mt:observes ;
+          sh:qualifiedValueShape [
+              sh:class mt:Availability ;
+          ] ;
+          sh:qualifiedMinCount 1 ;
+          sh:qualifiedMaxCount 1 ;
+    ] .
+
+val:DeviceMustHaveAssetChanged
+    a sh:NodeShape ;
+    sh:message "Device must have asset changed." ;
+    sh:targetClass mt:Device ;
+    sh:property [
+          sh:path mt:observes ;
+          sh:qualifiedValueShape [
+              sh:class mt:AssetChanged ;
+          ] ;
+          sh:qualifiedMinCount 1 ;
+          sh:qualifiedMaxCount 1 ;
+    ] .
+
+val:DeviceMustHaveAssetRemoved
+    a sh:NodeShape ;
+    sh:message "Device must have asset removed." ;
+    sh:targetClass mt:Device ;
+    sh:property [
+          sh:path mt:observes ;
+          sh:qualifiedValueShape [
+              sh:class mt:AssetRemoved ;
+          ] ;
+          sh:qualifiedMinCount 1 ;
+          sh:qualifiedMaxCount 1 ;
+    ] .

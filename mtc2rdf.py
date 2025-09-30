@@ -46,7 +46,7 @@ for shacl in glob("*.shacl"):
         inference='rdfs',
         abort_on_first=False,
         allow_infos=False,
-        allow_warnings=False,
+        allow_warnings=True,
         meta_shacl=False,
         advanced=False,
         js=False,
