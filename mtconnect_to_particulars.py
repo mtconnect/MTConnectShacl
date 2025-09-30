@@ -102,11 +102,11 @@ class MTConnectToParticulars:
     
     with self.Data:
       for di in element.findall("./m:DataItems/m:DataItem", self.ns):
-        if di.get("category") == "CONDITION":
-          continue
-        
         base_type = di.get("type")
         type = ':'.join([r for r in [base_type, di.get('subType', None)] if r])        
+        if di.get("category") == "CONDITION":
+          type += "_CONDITION"
+        
         di_cls = DataItems.get(type, DataItems.get(base_type, None))
         
         if di_cls:

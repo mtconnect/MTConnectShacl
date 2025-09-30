@@ -7,7 +7,7 @@ val:IdsMustBeUnique
     a sh:PredicateShape ;
     sh:targetSubjectsOf mt:hasId ;
     sh:sparql [
-        sh:prefixes val:UniqueIdOntology ;
+        sh:prefixes mt: ;
         sh:message "All `id` properties **MUST** be unique." ;
         sh:select """
             SELECT $this ?id WHERE {

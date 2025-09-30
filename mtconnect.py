@@ -152,6 +152,14 @@ with MTConnect:
   class LineLabel(Event):
     """A line label observable in the MTConnect ontology."""
     label = owl.locstr("Line Label", "en")
+    
+  class Material(Event):
+    """A material event in the MTConnect ontology."""
+    label = owl.locstr("Material", "en")
+    
+  class User(Event):
+    """A user event in the MTConnect ontology."""
+    label = owl.locstr("User", "en")
 
   # Some condition types      
   class SystemCondition(Condition):
@@ -289,11 +297,11 @@ with MTConnect:
     """A personnel resource in the MTConnect ontology."""
     label = owl.locstr("Personnel Resource", "en")
     
-  class Material(Resource):
+  class Materials(Resource):
     """A material resource in the MTConnect ontology."""
     label = owl.locstr("Material Resource", "en")
     
-  class Stock(Material):
+  class Stock(Materials):
     """A stock material resource in the MTConnect ontology."""
     label = owl.locstr("Stock Material Resource", "en")
   

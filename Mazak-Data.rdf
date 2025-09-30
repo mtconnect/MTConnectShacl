@@ -44,6 +44,7 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1a">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Axes"/>
   <onto:hasCapability rdf:resource="Mazak317641d1aCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1aSYSTEM_CONDITION"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ax"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ay"/>
   <onto:hasComponent rdf:resource="Mazak317641d1az"/>
@@ -59,10 +60,15 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1aSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1ax">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Linear"/>
   <onto:hasCapability rdf:resource="Mazak317641d1axCapability"/>
   <onto:observes rdf:resource="Mazak317641d1axPOSITION:ACTUAL"/>
+  <onto:observes rdf:resource="Mazak317641d1axPOSITION_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1axTEMPERATURE"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a x</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</onto:hasName>
@@ -77,6 +83,10 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActual"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1axPOSITION_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1axTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Temperature"/>
 </owl:NamedIndividual>
@@ -85,6 +95,7 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Linear"/>
   <onto:hasCapability rdf:resource="Mazak317641d1ayCapability"/>
   <onto:observes rdf:resource="Mazak317641d1ayPOSITION:ACTUAL"/>
+  <onto:observes rdf:resource="Mazak317641d1ayPOSITION_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1ayTEMPERATURE"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a y</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</onto:hasName>
@@ -99,6 +110,10 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActual"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1ayPOSITION_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1ayTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Temperature"/>
 </owl:NamedIndividual>
@@ -107,6 +122,7 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Linear"/>
   <onto:hasCapability rdf:resource="Mazak317641d1azCapability"/>
   <onto:observes rdf:resource="Mazak317641d1azPOSITION:ACTUAL"/>
+  <onto:observes rdf:resource="Mazak317641d1azPOSITION_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1azTEMPERATURE"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a z</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</onto:hasName>
@@ -121,6 +137,10 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActual"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1azPOSITION_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1azTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Temperature"/>
 </owl:NamedIndividual>
@@ -130,6 +150,7 @@
   <onto:hasCapability rdf:resource="Mazak317641d1acCapability"/>
   <onto:observes rdf:resource="Mazak317641d1acROTARY_VELOCITY:ACTUAL"/>
   <onto:observes rdf:resource="Mazak317641d1acTEMPERATURE"/>
+  <onto:observes rdf:resource="Mazak317641d1acTEMPERATURE_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a c</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C1</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c</onto:hasId>
@@ -147,9 +168,14 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Temperature"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1acTEMPERATURE_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1abr">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Rotary"/>
   <onto:hasCapability rdf:resource="Mazak317641d1abrCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1abrANGLE_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1abrANGLE:ACTUAL"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a br</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B</onto:hasName>
@@ -160,6 +186,10 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Angle"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleActual"/>
 </owl:NamedIndividual>
@@ -167,7 +197,9 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Rotary"/>
   <onto:hasCapability rdf:resource="Mazak317641d1ac2Capability"/>
+  <onto:observes rdf:resource="Mazak317641d1ac2ANGLE_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1ac2ANGLE:ACTUAL"/>
+  <onto:observes rdf:resource="Mazak317641d1ac2TEMPERATURE_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a c2</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C2</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c2</onto:hasId>
@@ -177,13 +209,22 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1ac2ANGLE_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Angle"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2ANGLE:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleActual"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1ac2TEMPERATURE_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureCondition"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1cont">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Controller"/>
   <onto:hasCapability rdf:resource="Mazak317641d1contCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1contSYSTEM_CONDITION"/>
   <onto:hasComponent rdf:resource="Mazak317641d1contpath1"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 cont</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">controller</onto:hasName>
@@ -194,11 +235,16 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1contSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Path"/>
   <onto:hasCapability rdf:resource="Mazak317641d1contpath1Capability"/>
   <onto:observes rdf:resource="Mazak317641d1contpath1EXECUTION"/>
   <onto:observes rdf:resource="Mazak317641d1contpath1CONTROLLER_MODE"/>
+  <onto:observes rdf:resource="Mazak317641d1contpath1SYSTEM_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 cont path1</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">path</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">path1</onto:hasId>
@@ -214,6 +260,10 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1CONTROLLER_MODE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/ControllerMode"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1contpath1SYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systems">
@@ -235,6 +285,7 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1systemshydraulic">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Hydraulic"/>
   <onto:hasCapability rdf:resource="Mazak317641d1systemshydraulicCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1systemshydraulicSYSTEM_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 systems hydraulic</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydraulic</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydraulic</onto:hasId>
@@ -244,9 +295,14 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1systemshydraulicSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1systemscoolant">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Coolant"/>
   <onto:hasCapability rdf:resource="Mazak317641d1systemscoolantCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1systemscoolantSYSTEM_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1systemscoolantTEMPERATURE"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 systems coolant</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coolant</onto:hasName>
@@ -257,6 +313,10 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1systemscoolantSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1systemscoolantTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Temperature"/>
 </owl:NamedIndividual>
@@ -264,6 +324,7 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1systemspneumatic">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Pneumatic"/>
   <onto:hasCapability rdf:resource="Mazak317641d1systemspneumaticCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1systemspneumaticSYSTEM_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 systems pneumatic</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pneumatic</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pneumatic</onto:hasId>
@@ -273,9 +334,14 @@
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="Mazak317641d1systemspneumaticSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="Mazak317641d1systemslubrication">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Lubrication"/>
   <onto:hasCapability rdf:resource="Mazak317641d1systemslubricationCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1systemslubricationSYSTEM_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 systems lubrication</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lubrication</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lubrication</onto:hasId>
@@ -283,6 +349,10 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemslubricationCapability">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1systemslubricationSYSTEM_CONDITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemCondition"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesm">
@@ -302,6 +372,7 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmpersonnelm">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Personnel"/>
   <onto:hasCapability rdf:resource="Mazak317641d1resourcesmpersonnelmCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1resourcesmpersonnelmUSER"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 resourcesm personnelm</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">personnel</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">personnelm</onto:hasId>
@@ -309,6 +380,10 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmpersonnelmCapability">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1resourcesmpersonnelmUSER">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/User"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterials">
@@ -327,6 +402,7 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterialsprocstock">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Stock"/>
   <onto:hasCapability rdf:resource="Mazak317641d1resourcesmmaterialsprocstockCapability"/>
+  <onto:observes rdf:resource="Mazak317641d1resourcesmmaterialsprocstockMATERIAL"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 resourcesm materials procstock</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stock</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">procstock</onto:hasId>
@@ -334,6 +410,10 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterialsprocstockCapability">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterialsprocstockMATERIAL">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Material"/>
 </owl:NamedIndividual>
 
 <owl:AllDifferent>

@@ -37,6 +37,8 @@ with open(file_name, 'r') as file:
 data_graph = "Mazak-Data.rdf"
 ont_graph = "mtconnect.rdf"
 
+print("\n-----------------------------------------------\n")
+
 for shacl in glob("*.shacl"):
   print("\nValidating with SHACL file:{}\n".format(shacl))
   shacl_graph = shacl
@@ -50,7 +52,7 @@ for shacl in glob("*.shacl"):
         meta_shacl=False,
         advanced=False,
         js=False,
-        debug=True)
+        debug=False)
 
   print (shacl_report)
   print(shacl_text)

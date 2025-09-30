@@ -235,6 +235,16 @@
   <rdfs:label xml:lang="en">Line Label</rdfs:label>
 </owl:Class>
 
+<owl:Class rdf:about="Material">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">Material</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="User">
+  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:label xml:lang="en">User</rdfs:label>
+</owl:Class>
+
 <owl:Class rdf:about="SystemCondition">
   <rdfs:subClassOf rdf:resource="Condition"/>
   <rdfs:label xml:lang="en">System Condition</rdfs:label>
@@ -381,13 +391,14 @@
   <rdfs:label xml:lang="en">Personnel Resource</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Material">
+<owl:Class rdf:about="Materials">
   <rdfs:subClassOf rdf:resource="Resource"/>
-  <rdfs:label xml:lang="en">Material Resource</rdfs:label>
+  <rdfs:subClassOf rdf:resource="Aggregator"/>
+  <rdfs:label xml:lang="en">Materials</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="Stock">
-  <rdfs:subClassOf rdf:resource="Material"/>
+  <rdfs:subClassOf rdf:resource="Materials"/>
   <rdfs:label xml:lang="en">Stock Material Resource</rdfs:label>
 </owl:Class>
 
@@ -419,11 +430,6 @@
 <owl:Class rdf:about="Resources">
   <rdfs:subClassOf rdf:resource="Aggregator"/>
   <rdfs:label xml:lang="en">Resources</rdfs:label>
-</owl:Class>
-
-<owl:Class rdf:about="Materials">
-  <rdfs:subClassOf rdf:resource="Aggregator"/>
-  <rdfs:label xml:lang="en">Materials</rdfs:label>
 </owl:Class>
 
 

@@ -82,7 +82,12 @@ DataItems = {
   'PATH_POSITION': MTConnect.PathPositionCommanded,
   'CONTROLLER_MODE': MTConnect.ControllerMode,
   'EXECUTION': MTConnect.Execution,
-  'CHUCK_STATE': MTConnect.ChuckState
+  'CHUCK_STATE': MTConnect.ChuckState,
+  'MATERIAL': MTConnect.Material,
+  'SYSTEM_CONDITION': MTConnect.SystemCondition,
+  'POSITION_CONDITION': MTConnect.PositionCondition,
+  'TEMPERATURE_CONDITION': MTConnect.TemperatureCondition,
+  'USER': MTConnect.User
 }
 
 '''
