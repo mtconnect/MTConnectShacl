@@ -24,7 +24,7 @@
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mazak</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d1</onto:hasId>
   <onto:hasAssetBufferSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</onto:hasAssetBufferSize>
-  <onto:hasAssetCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6700</onto:hasAssetCount>
+  <onto:hasAssetCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</onto:hasAssetCount>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1Capability">

@@ -3,7 +3,7 @@
 @prefix val: <https://purl.mtconnect.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
 
-mt:MustHaveComponentOrDataItemOrReference
+val:MustHaveComponentOrDataItemOrReference
     a sh:NodeShape ;
     sh:message "`Component` **MUST** have at least one of `Component`, `DataItem` or  `Reference` entities." ;
     sh:targetClass mt:Component ;
