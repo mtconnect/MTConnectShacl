@@ -1,0 +1,19 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+
+val:IdsMustBeUnique
+    a sh:PredicateShape ;
+    sh:targetSubjectsOf mt:hasId ;
+    sh:sparql [
+        sh:prefixes val:UniqueIdOntology ;
+        sh:message "All `id` properties **MUST** be unique." ;
+        sh:select """
+            SELECT $this ?id WHERE {
+                $this <https://purl.mtconnect.org/ontology/hasId> ?id .
+                ?other <https://purl.mtconnect.org/ontology/hasId> ?id .
+                FILTER ($this != ?other)
+            }
+        """ ;
+    ] .
