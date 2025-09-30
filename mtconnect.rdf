@@ -10,13 +10,13 @@
 <owl:ObjectProperty rdf:about="hasCapability">
   <rdfs:domain rdf:resource="Component"/>
   <rdfs:range rdf:resource="Capability"/>
-  <owl:inverseOf rdf:resource="capabilityOf"/>
+  <owl:inverseOf rdf:resource="isCapabilityOf"/>
   <rdfs:label xml:lang="en">has capability</rdfs:label>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="capabilityOf">
+<owl:ObjectProperty rdf:about="isCapabilityOf">
   <owl:inverseOf rdf:resource="hasCapability"/>
-  <rdfs:label xml:lang="en">capability of</rdfs:label>
+  <rdfs:label xml:lang="en">is capability of</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="observes">
@@ -29,7 +29,7 @@
 <owl:ObjectProperty rdf:about="hasComponent">
   <rdfs:domain rdf:resource="Component"/>
   <rdfs:range rdf:resource="Component"/>
-  <owl:inverseOf rdf:resource="componentOf"/>
+  <owl:inverseOf rdf:resource="isComponentOf"/>
   <rdfs:label xml:lang="en">has component</rdfs:label>
 </owl:ObjectProperty>
 
@@ -38,9 +38,9 @@
   <rdfs:label xml:lang="en">observed by</rdfs:label>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="componentOf">
+<owl:ObjectProperty rdf:about="isComponentOf">
   <owl:inverseOf rdf:resource="hasComponent"/>
-  <rdfs:label xml:lang="en">component of</rdfs:label>
+  <rdfs:label xml:lang="en">is component of</rdfs:label>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="hasReference">

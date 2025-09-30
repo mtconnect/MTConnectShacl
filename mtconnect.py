@@ -185,9 +185,9 @@ with MTConnect:
     """A property indicating that a component has a capability."""
     label = owl.locstr("has capability", "en")
 
-  class capabilityOf(owl.ObjectProperty):
+  class isCapabilityOf(owl.ObjectProperty):
     """A property indicating that a capability is part of a component."""
-    label = owl.locstr("capability of", "en")    
+    label = owl.locstr("is capability of", "en")    
     inverse_property = hasCapability
 
   class observes(Component >> Observable):
@@ -208,9 +208,9 @@ with MTConnect:
     label = owl.locstr("observed by", "en")    
     inverse_property = observes
     
-  class componentOf(owl.ObjectProperty):
+  class isComponentOf(owl.ObjectProperty):
     """A property indicating that a component is part of another component."""
-    label = owl.locstr("component of", "en")    
+    label = owl.locstr("is component of", "en")    
     inverse_property = hasComponent
 
   class hasReference(Component >> Component):

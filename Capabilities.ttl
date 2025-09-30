@@ -1,0 +1,232 @@
+@prefix : <https://purl.mtconnect.org/ontology/Capability/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdfv: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@base <https://purl.mtconnect.org/ontology/Capability/> .
+
+<https://purl.mtconnect.org/ontology/Capability/> rdfv:type owl:Ontology ;
+                                                   owl:imports data: ,
+                                                               mt: ;
+                                                   rdfs:label "MTConnect Capabilities"@en-us .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://purl.mtconnect.org/ontology/ComputeAvailabilityCapability
+mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                            [ rdfv:type owl:Restriction ;
+                                                                              owl:onProperty mt:isCapabilityOf ;
+                                                                              owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                                        [ rdfv:type owl:Restriction ;
+                                                                                                                          owl:onProperty mt:hasComponent ;
+                                                                                                                          owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                                                                                    [ rdfv:type owl:Restriction ;
+                                                                                                                                                                      owl:onProperty mt:hasCapability ;
+                                                                                                                                                                      owl:someValuesFrom mt:MonitorActiveCapability
+                                                                                                                                                                    ]
+                                                                                                                                                                  ) ;
+                                                                                                                                               rdfv:type owl:Class
+                                                                                                                                             ]
+                                                                                                                        ]
+                                                                                                                      ) ;
+                                                                                                   rdfv:type owl:Class
+                                                                                                 ]
+                                                                            ]
+                                                                          ) ;
+                                                       rdfv:type owl:Class
+                                                     ] ,
+                                                     [ owl:intersectionOf ( mt:Capability
+                                                                            [ rdfv:type owl:Restriction ;
+                                                                              owl:onProperty mt:isCapabilityOf ;
+                                                                              owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                                        [ rdfv:type owl:Restriction ;
+                                                                                                                          owl:onProperty mt:hasComponent ;
+                                                                                                                          owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                                                                                    [ rdfv:type owl:Restriction ;
+                                                                                                                                                                      owl:onProperty mt:hasComponent ;
+                                                                                                                                                                      owl:someValuesFrom [ owl:intersectionOf ( mt:Path
+                                                                                                                                                                                                                [ rdfv:type owl:Restriction ;
+                                                                                                                                                                                                                  owl:onProperty mt:hasCapability ;
+                                                                                                                                                                                                                  owl:someValuesFrom mt:MonitorActiveCapability
+                                                                                                                                                                                                                ]
+                                                                                                                                                                                                              ) ;
+                                                                                                                                                                                           rdfv:type owl:Class
+                                                                                                                                                                                         ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ) ;
+                                                                                                                                               rdfv:type owl:Class
+                                                                                                                                             ]
+                                                                                                                        ]
+                                                                                                                        [ rdfv:type owl:Restriction ;
+                                                                                                                          owl:onProperty mt:observes ;
+                                                                                                                          owl:someValuesFrom mt:Availability
+                                                                                                                        ]
+                                                                                                                      ) ;
+                                                                                                   rdfv:type owl:Class
+                                                                                                 ]
+                                                                            ]
+                                                                          ) ;
+                                                       rdfv:type owl:Class
+                                                     ] ;
+                                 rdfs:subClassOf mt:Capability ;
+                                 rdfs:label "compute availability"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/FiveAxisCapability
+mt:FiveAxisCapability rdfv:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                 [ rdfv:type owl:Restriction ;
+                                                                   owl:onProperty mt:isCapabilityOf ;
+                                                                   owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                             [ rdfv:type owl:Restriction ;
+                                                                                                               owl:onProperty mt:hasComponent ;
+                                                                                                               owl:someValuesFrom [ owl:intersectionOf ( mt:Axes
+                                                                                                                                                         [ rdfv:type owl:Restriction ;
+                                                                                                                                                           owl:onProperty mt:hasComponent ;
+                                                                                                                                                           owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                                                                                                                           owl:onClass mt:Rotary
+                                                                                                                                                         ]
+                                                                                                                                                       ) ;
+                                                                                                                                    rdfv:type owl:Class
+                                                                                                                                  ]
+                                                                                                             ]
+                                                                                                           ) ;
+                                                                                        rdfv:type owl:Class
+                                                                                      ]
+                                                                 ]
+                                                               ) ;
+                                            rdfv:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf mt:FourAxisCapability .
+
+
+###  https://purl.mtconnect.org/ontology/FourAxisCapability
+mt:FourAxisCapability rdfv:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                 [ rdfv:type owl:Restriction ;
+                                                                   owl:onProperty mt:isCapabilityOf ;
+                                                                   owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                             [ rdfv:type owl:Restriction ;
+                                                                                                               owl:onProperty mt:hasComponent ;
+                                                                                                               owl:someValuesFrom [ owl:intersectionOf ( mt:Axes
+                                                                                                                                                         [ rdfv:type owl:Restriction ;
+                                                                                                                                                           owl:onProperty mt:hasComponent ;
+                                                                                                                                                           owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                                                                                                           owl:onClass mt:Rotary
+                                                                                                                                                         ]
+                                                                                                                                                         [ rdfv:type owl:Restriction ;
+                                                                                                                                                           owl:onProperty mt:hasComponent ;
+                                                                                                                                                           owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                                                                                                                           owl:onClass mt:Linear
+                                                                                                                                                         ]
+                                                                                                                                                       ) ;
+                                                                                                                                    rdfv:type owl:Class
+                                                                                                                                  ]
+                                                                                                             ]
+                                                                                                           ) ;
+                                                                                        rdfv:type owl:Class
+                                                                                      ]
+                                                                 ]
+                                                               ) ;
+                                            rdfv:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf mt:Capability .
+
+
+###  https://purl.mtconnect.org/ontology/MonitorActiveCapability
+mt:MonitorActiveCapability rdfv:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                      [ rdfv:type owl:Restriction ;
+                                                                        owl:onProperty mt:isCapabilityOf ;
+                                                                        owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
+                                                                                                                  [ owl:intersectionOf ( [ rdfv:type owl:Restriction ;
+                                                                                                                                           owl:onProperty mt:observes ;
+                                                                                                                                           owl:someValuesFrom mt:ControllerMode
+                                                                                                                                         ]
+                                                                                                                                         [ rdfv:type owl:Restriction ;
+                                                                                                                                           owl:onProperty mt:observes ;
+                                                                                                                                           owl:someValuesFrom mt:Execution
+                                                                                                                                         ]
+                                                                                                                                       ) ;
+                                                                                                                    rdfv:type owl:Class
+                                                                                                                  ]
+                                                                                                                ) ;
+                                                                                             rdfv:type owl:Class
+                                                                                           ]
+                                                                      ]
+                                                                    ) ;
+                                                 rdfv:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf mt:Capability .
+
+
+###  https://purl.mtconnect.org/ontology/SixAxisCapability
+mt:SixAxisCapability rdfv:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                                [ rdfv:type owl:Restriction ;
+                                                                  owl:onProperty mt:isCapabilityOf ;
+                                                                  owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                            [ rdfv:type owl:Restriction ;
+                                                                                                              owl:onProperty mt:hasComponent ;
+                                                                                                              owl:someValuesFrom [ owl:intersectionOf ( mt:Axes
+                                                                                                                                                        [ rdfv:type owl:Restriction ;
+                                                                                                                                                          owl:onProperty mt:hasComponent ;
+                                                                                                                                                          owl:minQualifiedCardinality "4"^^xsd:nonNegativeInteger ;
+                                                                                                                                                          owl:onClass mt:Rotary
+                                                                                                                                                        ]
+                                                                                                                                                      ) ;
+                                                                                                                                   rdfv:type owl:Class
+                                                                                                                                 ]
+                                                                                                            ]
+                                                                                                          ) ;
+                                                                                       rdfv:type owl:Class
+                                                                                     ]
+                                                                ]
+                                                              ) ;
+                                           rdfv:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf mt:Capability .
+
+
+###  https://purl.mtconnect.org/ontology/ThreeAxisMachine
+mt:ThreeAxisMachine rdfv:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( mt:Capability
+                                                               [ rdfv:type owl:Restriction ;
+                                                                 owl:onProperty mt:isCapabilityOf ;
+                                                                 owl:someValuesFrom [ owl:intersectionOf ( mt:Device
+                                                                                                           [ rdfv:type owl:Restriction ;
+                                                                                                             owl:onProperty mt:hasComponent ;
+                                                                                                             owl:someValuesFrom [ owl:intersectionOf ( mt:Axes
+                                                                                                                                                       [ rdfv:type owl:Restriction ;
+                                                                                                                                                         owl:onProperty mt:hasComponent ;
+                                                                                                                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                                                         owl:onClass mt:Rotary
+                                                                                                                                                       ]
+                                                                                                                                                       [ rdfv:type owl:Restriction ;
+                                                                                                                                                         owl:onProperty mt:hasComponent ;
+                                                                                                                                                         owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                                                                                                                         owl:onClass mt:Linear
+                                                                                                                                                       ]
+                                                                                                                                                     ) ;
+                                                                                                                                  rdfv:type owl:Class
+                                                                                                                                ]
+                                                                                                           ]
+                                                                                                         ) ;
+                                                                                      rdfv:type owl:Class
+                                                                                    ]
+                                                               ]
+                                                             ) ;
+                                          rdfv:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf mt:Capability .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
