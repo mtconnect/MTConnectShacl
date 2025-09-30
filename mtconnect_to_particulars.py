@@ -76,6 +76,9 @@ class MTConnectToParticulars:
         partic.hasName.append(text_name)
       
       partic.hasId.append(id)
+      
+      cap = MTConnect.Capability(partic.name + 'Capability')
+      partic.hasCapability.append(cap)
 
       #ds = self._create_particular_specifications(element, partic, name)
       #key = None

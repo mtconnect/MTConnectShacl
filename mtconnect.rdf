@@ -7,6 +7,18 @@
          xmlns="https://purl.mtconnect.org/ontology/">
 
 <owl:Ontology rdf:about=""/>
+<owl:ObjectProperty rdf:about="hasCapability">
+  <rdfs:domain rdf:resource="Component"/>
+  <rdfs:range rdf:resource="Capability"/>
+  <owl:inverseOf rdf:resource="capabilityOf"/>
+  <rdfs:label xml:lang="en">has capability</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="capabilityOf">
+  <owl:inverseOf rdf:resource="hasCapability"/>
+  <rdfs:label xml:lang="en">capability of</rdfs:label>
+</owl:ObjectProperty>
+
 <owl:ObjectProperty rdf:about="observes">
   <rdfs:domain rdf:resource="Component"/>
   <rdfs:range rdf:resource="Observable"/>
@@ -275,7 +287,18 @@
       <owl:someValuesFrom rdf:resource="Observable"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="hasCapability"/>
+      <owl:someValuesFrom rdf:resource="Capability"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
   <rdfs:label xml:lang="en">Component</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="Capability">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:label xml:lang="en">Capability</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="Device">

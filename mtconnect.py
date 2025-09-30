@@ -177,6 +177,19 @@ with MTConnect:
     label = owl.locstr("Component", "en")
     is_a = [hasId.some(str), hasName.some(str), hasUUID.some(str)]
 
+  class Capability(owl.Thing):
+    """A capability in the MTConnect ontology."""
+    label = owl.locstr("Capability", "en")
+
+  class hasCapability(Component >> Capability):
+    """A property indicating that a component has a capability."""
+    label = owl.locstr("has capability", "en")
+
+  class capabilityOf(owl.ObjectProperty):
+    """A property indicating that a capability is part of a component."""
+    label = owl.locstr("capability of", "en")    
+    inverse_property = hasCapability
+
   class observes(Component >> Observable):
     """A property indicating that a component observes an observable."""
     label = owl.locstr("observes", "en")
@@ -188,6 +201,7 @@ with MTConnect:
 
   Component.is_a.append(hasComponent.some(Component)) 
   Component.is_a.append(observes.some(Observable))
+  Component.is_a.append(hasCapability.some(Capability))
   
   class observedBy(owl.ObjectProperty):
     """A property indicating that an observable is observed by a component."""
