@@ -19,10 +19,6 @@
 #    Classes
 #################################################################
 
-###  https://purl.mtconnect.org/ontology/Availability
-mt:Availability rdfv:type owl:Class .
-
-
 ###  https://purl.mtconnect.org/ontology/ComputeAvailabilityCapability
 mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                  owl:equivalentClass [ owl:intersectionOf ( mt:Capability
@@ -82,10 +78,6 @@ mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                                      ] ;
                                  rdfs:subClassOf mt:Capability ;
                                  rdfs:label "compute availability"@en-us .
-
-
-###  https://purl.mtconnect.org/ontology/Execution
-mt:Execution rdfv:type owl:Class .
 
 
 ###  https://purl.mtconnect.org/ontology/FiveAxisCapability
