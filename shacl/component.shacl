@@ -2,6 +2,7 @@
 @prefix data: <https://mtconnect.org/data/> .
 @prefix val: <https://purl.mtconnect.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 val:MustHaveComponentOrDataItemOrReference
     a sh:NodeShape ;
@@ -24,3 +25,14 @@ val:MustHaveComponentOrDataItemOrReference
             sh:class mt:Reference ;
         ] ]
     ) .
+
+val:ComponentMustHaveId
+    a sh:NodeShape ;
+    sh:message "Component must have id." ;
+    sh:targetClass mt:Component ;
+    sh:property [
+          sh:path mt:hasId ;
+          sh:datatype xsd:string ;
+          sh:pattern "^[a-zA-Z_][a-zA-Z0-9_\\-]*$" ;
+          sh:minCount 1 ;
+    ] .
