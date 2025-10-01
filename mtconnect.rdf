@@ -152,6 +152,16 @@
   <rdfs:label xml:lang="en">Path Feedrate</rdfs:label>
 </owl:Class>
 
+<owl:Class rdf:about="PathFeedrateActualDataItem">
+  <rdfs:subClassOf rdf:resource="PathFeedrateDataItem"/>
+  <rdfs:label xml:lang="en">Path Feedrate Actual</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="PathFeedrateCommandedDataItem">
+  <rdfs:subClassOf rdf:resource="PathFeedrateDataItem"/>
+  <rdfs:label xml:lang="en">Path Feedrate Commanded</rdfs:label>
+</owl:Class>
+
 <owl:Class rdf:about="PathPositionDataItem">
   <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Path Position</rdfs:label>

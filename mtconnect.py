@@ -74,7 +74,15 @@ with MTConnect:
     
   class PathFeedrateDataItem(SampleDataItem):
     """A path feedrate observable in the MTConnect ontology."""
-    label = owl.locstr("Path Feedrate", "en") 
+    label = owl.locstr("Path Feedrate", "en")
+    
+  class PathFeedrateActualDataItem(PathFeedrateDataItem):
+    """An actual path feedrate observable in the MTConnect ontology."""
+    label = owl.locstr("Path Feedrate Actual", "en")
+    
+  class PathFeedrateCommandedDataItem(PathFeedrateDataItem):
+    """A commanded path feedrate observable in the MTConnect ontology."""
+    label = owl.locstr("Path Feedrate Commanded", "en")
     
   class PathPositionDataItem(SampleDataItem):
     """A path position observable in the MTConnect ontology."""

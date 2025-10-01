@@ -244,6 +244,10 @@
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Path"/>
   <onto:hasCapability rdf:resource="Mazak317641d1contpath1Capability"/>
+  <onto:observes rdf:resource="Mazak317641d1contpath1PATH_POSITION"/>
+  <onto:observes rdf:resource="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:RAPID"/>
+  <onto:observes rdf:resource="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:PROGRAMMED"/>
+  <onto:observes rdf:resource="Mazak317641d1contpath1PATH_FEEDRATE:ACTUAL"/>
   <onto:observes rdf:resource="Mazak317641d1contpath1EXECUTION"/>
   <onto:observes rdf:resource="Mazak317641d1contpath1SYSTEM_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 cont path1</rdfs:label>
@@ -253,6 +257,22 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1Capability">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_POSITION">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathPositionDataItem"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:RAPID">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateOverrideRapidDataItem"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:PROGRAMMED">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateOverrideProgrammedDataItem"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE:ACTUAL">
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateActualDataItem"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1EXECUTION">
