@@ -16,7 +16,7 @@ val:MustHaveComponentOrDataItemOrReference
         [ sh:property [
             sh:path mt:observes ;
             sh:minCount 1 ;
-            sh:class mt:Observable ;
+            sh:class mt:DataItem ;
         ] ]
         [ sh:property [
             sh:path mt:hasReference ;

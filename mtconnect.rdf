@@ -21,7 +21,7 @@
 
 <owl:ObjectProperty rdf:about="observes">
   <rdfs:domain rdf:resource="Component"/>
-  <rdfs:range rdf:resource="Observable"/>
+  <rdfs:range rdf:resource="DataItem"/>
   <owl:inverseOf rdf:resource="observedBy"/>
   <rdfs:label xml:lang="en">observes</rdfs:label>
 </owl:ObjectProperty>
@@ -85,7 +85,7 @@
   <rdfs:label xml:lang="en">has buffer size</rdfs:label>
 </owl:DatatypeProperty>
 
-<owl:Class rdf:about="Observable">
+<owl:Class rdf:about="DataItem">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -102,173 +102,173 @@
   <rdfs:label xml:lang="en">Observable</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Event">
-  <rdfs:subClassOf rdf:resource="Observable"/>
+<owl:Class rdf:about="EventDataItem">
+  <rdfs:subClassOf rdf:resource="DataItem"/>
   <rdfs:label xml:lang="en">Event</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Sample">
-  <rdfs:subClassOf rdf:resource="Observable"/>
+<owl:Class rdf:about="SampleDataItem">
+  <rdfs:subClassOf rdf:resource="DataItem"/>
   <rdfs:label xml:lang="en">Sample</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Condition">
-  <rdfs:subClassOf rdf:resource="Observable"/>
+<owl:Class rdf:about="ConditionDataItem">
+  <rdfs:subClassOf rdf:resource="DataItem"/>
   <rdfs:label xml:lang="en">Condition</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Position">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="PositionDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Position</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PositionActual">
-  <rdfs:subClassOf rdf:resource="Position"/>
+<owl:Class rdf:about="PositionActualDataItem">
+  <rdfs:subClassOf rdf:resource="PositionDataItem"/>
   <rdfs:label xml:lang="en">Position Actual</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PositionCommanded">
-  <rdfs:subClassOf rdf:resource="Position"/>
+<owl:Class rdf:about="PositionCommandedDataItem">
+  <rdfs:subClassOf rdf:resource="PositionDataItem"/>
   <rdfs:label xml:lang="en">Position Commanded</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Angle">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="AngleDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Angle</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AngleActual">
-  <rdfs:subClassOf rdf:resource="Angle"/>
+<owl:Class rdf:about="AngleActualDataItem">
+  <rdfs:subClassOf rdf:resource="AngleDataItem"/>
   <rdfs:label xml:lang="en">Angle Actual</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AngleCommanded">
-  <rdfs:subClassOf rdf:resource="Angle"/>
+<owl:Class rdf:about="AngleCommandedDataItem">
+  <rdfs:subClassOf rdf:resource="AngleDataItem"/>
   <rdfs:label xml:lang="en">Angle Commanded</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PathFeedrate">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="PathFeedrateDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Path Feedrate</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PathPosition">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="PathPositionDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Path Position</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Load">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="LoadDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Load</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Temperature">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="TemperatureDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Temperature</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AngularVelocity">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="AngularVelocitDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Angular Velocity</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="RotaryVelocity">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="RotaryVelocityDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Rotary Velocity</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="RotaryVelocityActual">
-  <rdfs:subClassOf rdf:resource="RotaryVelocity"/>
+<owl:Class rdf:about="RotaryVelocityActualDataItem">
+  <rdfs:subClassOf rdf:resource="RotaryVelocityDataItem"/>
   <rdfs:label xml:lang="en">Rotary Velocity Actual</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="RotaryVelocityCommanded">
-  <rdfs:subClassOf rdf:resource="RotaryVelocity"/>
+<owl:Class rdf:about="RotaryVelocityCommandedDataItem">
+  <rdfs:subClassOf rdf:resource="RotaryVelocityDataItem"/>
   <rdfs:label xml:lang="en">Rotary Velocity Commanded</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PathFeedrateOverride">
-  <rdfs:subClassOf rdf:resource="Sample"/>
+<owl:Class rdf:about="PathFeedrateOverrideDataItem">
+  <rdfs:subClassOf rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Path Feedrate Override</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PathFeedrateOverrideRapid">
-  <rdfs:subClassOf rdf:resource="PathFeedrateOverride"/>
+<owl:Class rdf:about="PathFeedrateOverrideRapidDataItem">
+  <rdfs:subClassOf rdf:resource="PathFeedrateOverrideDataItem"/>
   <rdfs:label xml:lang="en">Path Feedrate Override Rapid</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PathFeedrateOverrideProgrammed">
-  <rdfs:subClassOf rdf:resource="PathFeedrateOverride"/>
+<owl:Class rdf:about="PathFeedrateOverrideProgrammedDataItem">
+  <rdfs:subClassOf rdf:resource="PathFeedrateOverrideDataItem"/>
   <rdfs:label xml:lang="en">Path Feedrate Override Programmed</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Availability">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="AvailabilityDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Availability</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AssetChanged">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="AssetChangedDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Asset Changed</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AssetRemoved">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="AssetRemovedDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Asset Removed</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AssetAdded">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="AssetAddedDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Asset Added</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Execution">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="ExecutionDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Execution</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="ControllerMode">
-  <rdfs:subClassOf rdf:resource="Event"/>
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Controller Mode</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="AxisState">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="AxisStateDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Axis State</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="LineNumber">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="LineNumberDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Line Number</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="LineLabel">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="LineLabelDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Line Label</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="Material">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="MaterialDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Material</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="User">
-  <rdfs:subClassOf rdf:resource="Event"/>
+<owl:Class rdf:about="UserDataItem">
+  <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">User</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="SystemCondition">
-  <rdfs:subClassOf rdf:resource="Condition"/>
+<owl:Class rdf:about="SystemConditionDataItem">
+  <rdfs:subClassOf rdf:resource="ConditionDataItem"/>
   <rdfs:label xml:lang="en">System Condition</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="TemperatureCondition">
-  <rdfs:subClassOf rdf:resource="Condition"/>
+<owl:Class rdf:about="TemperatureConditionDataItem">
+  <rdfs:subClassOf rdf:resource="ConditionDataItem"/>
   <rdfs:label xml:lang="en">Temperature Condition</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="PositionCondition">
-  <rdfs:subClassOf rdf:resource="Condition"/>
+<owl:Class rdf:about="PositionConditionDataItem">
+  <rdfs:subClassOf rdf:resource="ConditionDataItem"/>
   <rdfs:label xml:lang="en">Position Condition</rdfs:label>
 </owl:Class>
 
@@ -306,7 +306,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="observes"/>
-      <owl:someValuesFrom rdf:resource="Observable"/>
+      <owl:someValuesFrom rdf:resource="DataItem"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>

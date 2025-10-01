@@ -30,147 +30,147 @@ with MTConnect:
     range = [str]
   
   # Data Items/Observables
-  class Observable(owl.Thing):
+  class DataItem(owl.Thing):
     """An observable in the MTConnect ontology."""
     label = owl.locstr("Observable", "en")
     is_a = [hasId.some(str), hasName.some(str)]
     
-  class Event(Observable):
+  class EventDataItem(DataItem):
     """An event in the MTConnect ontology."""
     label = owl.locstr("Event", "en")
     
-  class Sample(Observable):
+  class SampleDataItem(DataItem):
     """A sample in the MTConnect ontology."""
     label = owl.locstr("Sample", "en")
 
-  class Condition(Observable):
+  class ConditionDataItem(DataItem):
     """A condition in the MTConnect ontology."""
     label = owl.locstr("Condition", "en")
     
-  # Some Sample types
-  class Position(Sample):
+  # Some Sample Data Item types
+  class PositionDataItem(SampleDataItem):
     """A position observable in the MTConnect ontology."""
     label = owl.locstr("Position", "en")
     
-  class PositionActual(Position):
+  class PositionActualDataItem(PositionDataItem):
     """An actual position observable in the MTConnect ontology."""
     label = owl.locstr("Position Actual", "en")
     
-  class PositionCommanded(Position):
+  class PositionCommandedDataItem(PositionDataItem):
     """A commanded position observable in the MTConnect ontology."""
     label = owl.locstr("Position Commanded", "en")
-    
-  class Angle(Sample):
+
+  class AngleDataItem(SampleDataItem):
     """An angle observable in the MTConnect ontology."""
     label = owl.locstr("Angle", "en")
     
-  class AngleActual(Angle):
+  class AngleActualDataItem(AngleDataItem):
     """An actual angle observable in the MTConnect ontology."""
     label = owl.locstr("Angle Actual", "en")
     
-  class AngleCommanded(Angle):
+  class AngleCommandedDataItem(AngleDataItem):
     """A commanded angle observable in the MTConnect ontology."""
     label = owl.locstr("Angle Commanded", "en")
     
-  class PathFeedrate(Sample):
+  class PathFeedrateDataItem(SampleDataItem):
     """A path feedrate observable in the MTConnect ontology."""
     label = owl.locstr("Path Feedrate", "en") 
     
-  class PathPosition(Sample):
+  class PathPositionDataItem(SampleDataItem):
     """A path position observable in the MTConnect ontology."""
     label = owl.locstr("Path Position", "en")
     
-  class Load(Sample):
+  class LoadDataItem(SampleDataItem):
     """A load observable in the MTConnect ontology."""
     label = owl.locstr("Load", "en")
   
-  class Temperature(Sample):
+  class TemperatureDataItem(SampleDataItem):
     """A temperature observable in the MTConnect ontology."""
     label = owl.locstr("Temperature", "en")
     
-  class AngularVelocity(Sample):
+  class AngularVelocitDataItem(SampleDataItem):
     """An angular velocity observable in the MTConnect ontology."""
     label = owl.locstr("Angular Velocity", "en")
     
-  class RotaryVelocity(Sample):
+  class RotaryVelocityDataItem(SampleDataItem):
     """A rotary velocity observable in the MTConnect ontology."""
     label = owl.locstr("Rotary Velocity", "en")
     
-  class RotaryVelocityActual(RotaryVelocity):
+  class RotaryVelocityActualDataItem(RotaryVelocityDataItem):
     """An actual rotary velocity observable in the MTConnect ontology."""
     label = owl.locstr("Rotary Velocity Actual", "en")
     
-  class RotaryVelocityCommanded(RotaryVelocity):
+  class RotaryVelocityCommandedDataItem(RotaryVelocityDataItem):
     """A commanded rotary velocity observable in the MTConnect ontology."""
     label = owl.locstr("Rotary Velocity Commanded", "en")
     
-  class PathFeedrateOverride(Sample):
+  class PathFeedrateOverrideDataItem(SampleDataItem):
     """A path feedrate override observable in the MTConnect ontology."""
     label = owl.locstr("Path Feedrate Override", "en")
     
-  class PathFeedrateOverrideRapid(PathFeedrateOverride):
+  class PathFeedrateOverrideRapidDataItem(PathFeedrateOverrideDataItem):
     """A path feedrate override rapid observable in the MTConnect ontology."""
     label = owl.locstr("Path Feedrate Override Rapid", "en")
     
-  class PathFeedrateOverrideProgrammed(PathFeedrateOverride):
+  class PathFeedrateOverrideProgrammedDataItem(PathFeedrateOverrideDataItem):
     """A path feedrate override programmed observable in the MTConnect ontology."""
     label = owl.locstr("Path Feedrate Override Programmed", "en")
     
   # Some event types
-  class Availability(Event):
+  class AvailabilityDataItem(EventDataItem):
     """An availability event in the MTConnect ontology."""
     label = owl.locstr("Availability", "en")  
     
-  class AssetChanged(Event):
+  class AssetChangedDataItem(EventDataItem):
     """An asset changed event in the MTConnect ontology."""
     label = owl.locstr("Asset Changed", "en")
     
-  class AssetRemoved(Event):
+  class AssetRemovedDataItem(EventDataItem):
     """An asset removed event in the MTConnect ontology."""
     label = owl.locstr("Asset Removed", "en")
     
-  class AssetAdded(Event):
+  class AssetAddedDataItem(EventDataItem):
     """An asset added event in the MTConnect ontology."""
     label = owl.locstr("Asset Added", "en")
     
-  class Execution(Event):
+  class ExecutionDataItem(EventDataItem):
     """An execution event in the MTConnect ontology."""
     label = owl.locstr("Execution", "en")
     
-  class ControllerMode(Event):
+  class ControllerMode(EventDataItem):
     """A controller mode event in the MTConnect ontology."""
     label = owl.locstr("Controller Mode", "en")
     
-  class AxisState(Event):
+  class AxisStateDataItem(EventDataItem):
     """An axis state event in the MTConnect ontology."""
     label = owl.locstr("Axis State", "en")        
         
-  class LineNumber(Event):
+  class LineNumberDataItem(EventDataItem):
     """A line number observable in the MTConnect ontology."""
     label = owl.locstr("Line Number", "en")
     
-  class LineLabel(Event):
+  class LineLabelDataItem(EventDataItem):
     """A line label observable in the MTConnect ontology."""
     label = owl.locstr("Line Label", "en")
     
-  class Material(Event):
+  class MaterialDataItem(EventDataItem):
     """A material event in the MTConnect ontology."""
     label = owl.locstr("Material", "en")
     
-  class User(Event):
+  class UserDataItem(EventDataItem):
     """A user event in the MTConnect ontology."""
     label = owl.locstr("User", "en")
 
   # Some condition types      
-  class SystemCondition(Condition):
+  class SystemConditionDataItem(ConditionDataItem):
     """A system condition in the MTConnect ontology."""
     label = owl.locstr("System Condition", "en")
     
-  class TemperatureCondition(Condition):
+  class TemperatureConditionDataItem(ConditionDataItem):
     """A temperature condition in the MTConnect ontology."""
     label = owl.locstr("Temperature Condition", "en")
 
-  class PositionCondition(Condition):
+  class PositionConditionDataItem(ConditionDataItem):
     """A position condition in the MTConnect ontology."""
     label = owl.locstr("Position Condition", "en")
 
@@ -198,8 +198,8 @@ with MTConnect:
     label = owl.locstr("is capability of", "en")    
     inverse_property = hasCapability
 
-  class observes(Component >> Observable):
-    """A property indicating that a component observes an observable."""
+  class observes(Component >> DataItem):
+    """A property indicating that a component observes a data item."""
     label = owl.locstr("observes", "en")
 
     # Some properties for base model
@@ -208,11 +208,11 @@ with MTConnect:
     label = owl.locstr("has component", "en")
 
   Component.is_a.append(hasComponent.some(Component)) 
-  Component.is_a.append(observes.some(Observable))
+  Component.is_a.append(observes.some(DataItem))
   Component.is_a.append(hasCapability.some(Capability))
   
   class observedBy(owl.ObjectProperty):
-    """A property indicating that an observable is observed by a component."""
+    """A property indicating that a data item is observed by a component."""
     label = owl.locstr("observed by", "en")    
     inverse_property = observes
     
@@ -233,7 +233,7 @@ with MTConnect:
   class Device(Component):
     """A device in the MTConnect ontology."""
     label = owl.locstr("Device", "en")
-    subclass_of = [observes.some(Availability)]
+    subclass_of = [observes.some(AvailabilityDataItem)]
     
   class hasAssetCount(owl.DataProperty):
     """A property indicating the asset count of a device."""

@@ -10,7 +10,7 @@ val:DeviceMustHaveAvailability
     sh:property [
           sh:path mt:observes ;
           sh:qualifiedValueShape [
-              sh:class mt:Availability ;
+              sh:class mt:AvailabilityDataItem ;
           ] ;
           sh:qualifiedMinCount 1 ;
           sh:qualifiedMaxCount 1 ;
@@ -24,7 +24,7 @@ val:DeviceMustHaveAssetChanged
           sh:message "Device must have asset changed." ;
           sh:path mt:observes ;
           sh:qualifiedValueShape [
-              sh:class mt:AssetChanged ;
+              sh:class mt:AssetChangedDataItem ;
           ] ;
           sh:qualifiedMinCount 1 ;
           sh:qualifiedMaxCount 1 ;
@@ -38,7 +38,7 @@ val:DeviceMustHaveAssetRemoved
           sh:message "Device must have asset removed." ;
           sh:path mt:observes ;
           sh:qualifiedValueShape [
-              sh:class mt:AssetRemoved ;
+              sh:class mt:AssetRemovedDataItem ;
           ] ;
           sh:qualifiedMinCount 1 ;
           sh:qualifiedMaxCount 1 ;
