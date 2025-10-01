@@ -2,17 +2,26 @@
 @prefix data: <https://mtconnect.org/data/> .
 @prefix val: <https://purl.mtconnect.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+val:Prefix a owl:Ontology ;
+    owl:imports <http://www.w3.org/ns/shacl> , <https://purl.mtconnect.org/ontology/> ;
+    sh:declare [
+        sh:prefix "mt" ;
+        sh:namespace "https://purl.mtconnect.org/ontology/"^^xsd:anyURI ;
+    ] .
 
 val:IdsMustBeUnique
     a sh:PredicateShape ;
     sh:targetSubjectsOf mt:hasId ;
     sh:sparql [
-        sh:prefixes mt: ;
+        sh:prefixes val:Prefix ;
         sh:message "All `id` properties **MUST** be unique." ;
         sh:select """
             SELECT $this ?id WHERE {
-                $this <https://purl.mtconnect.org/ontology/hasId> ?id .
-                ?other <https://purl.mtconnect.org/ontology/hasId> ?id .
+                $this mt:hasId ?id .
+                ?other mt:hasId ?id .
                 FILTER ($this != ?other)
             }
         """ ;

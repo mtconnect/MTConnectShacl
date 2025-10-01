@@ -2,18 +2,29 @@
 @prefix data: <https://mtconnect.org/data/> .
 @prefix val: <https://purl.mtconnect.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+val:Prefix a owl:Ontology ;
+    owl:imports <http://www.w3.org/ns/shacl> , <https://purl.mtconnect.org/ontology/> ;
+    sh:declare [
+        sh:prefix "mt" ;
+        sh:namespace "https://purl.mtconnect.org/ontology/"^^xsd:anyURI ;
+    ] .
+
 
 val:AssetCountShouldBeLessThanAssetBufferSize
     a sh:NodeShape ;
     sh:targetClass mt:Device ;
     sh:sparql [
       a sh:SPARQLConstraint ;
-      sh:prefixes mt: ;
+      sh:prefixes val:Prefix ;
+      sh:severity sh:Warning ;
       sh:message "The `assetCount` **SHOULD** be less than the `assetBufferSize`." ;
       sh:select """
         SELECT $this ?assetCount ?assetBufferSize WHERE {
-            $this <https://purl.mtconnect.org/ontology/hasAssetCount> ?assetCount .
-            $this <https://purl.mtconnect.org/ontology/hasAssetBufferSize> ?assetBufferSize .
+            $this mt:hasAssetCount ?assetCount .
+            $this mt:hasAssetBufferSize ?assetBufferSize .
             FILTER (?assetCount >= ?assetBufferSize)
         }
       """ ;

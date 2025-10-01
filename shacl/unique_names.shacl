@@ -2,19 +2,29 @@
 @prefix data: <https://mtconnect.org/data/> .
 @prefix val: <https://purl.mtconnect.org/shacl/> .
 @prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+val:Prefix a owl:Ontology ;
+    owl:imports <http://www.w3.org/ns/shacl> , <https://purl.mtconnect.org/ontology/> ;
+    sh:declare [
+        sh:prefix "mt" ;
+        sh:namespace "https://purl.mtconnect.org/ontology/"^^xsd:anyURI ;
+    ] .
+
 
 val:NamesShouldBeUnique
     a sh:PredicateShape ;
     sh:targetSubjectsOf mt:hasName ;
     sh:sparql [
       a sh:SPARQLConstraint ;
-        sh:prefixes mt: ;
+        sh:prefixes val:Prefix ;
         sh:message "All `name` properties **SHOULD** be unique." ;
         sh:severity sh:Warning ;
         sh:select """
             SELECT $this ?name WHERE {
-                $this <https://purl.mtconnect.org/ontology/hasName> ?name .
-                ?other <https://purl.mtconnect.org/ontology/hasName> ?name .
+                $this mt:hasName ?name .
+                ?other mt:hasName ?name .
                 FILTER ($this != ?other)
             }
         """ ;
@@ -25,14 +35,14 @@ val:NamesAtTheSameLevelMustBeUnique
     sh:targetClass mt:Component ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:prefixes mt: ;
+        sh:prefixes val:Prefix ;
         sh:message "All `name` properties at the same level **MUST** be unique." ;
         sh:select """
             SELECT $this ?name ?sub1 ?sub2 WHERE {
-                $this <https://purl.mtconnect.org/ontology/hasComponent> ?sub1 .
-                ?sub1 <https://purl.mtconnect.org/ontology/hasName> ?name .
-                $this <https://purl.mtconnect.org/ontology/hasComponent> ?sub2 .
-                ?sub2 <https://purl.mtconnect.org/ontology/hasName> ?name .
+                $this mt:hasComponent ?sub1 .
+                ?sub1 mt:hasName ?name .
+                $this mt:hasComponent ?sub2 .
+                ?sub2 mt:hasName ?name .
                 FILTER (?sub1 != ?sub2)
             }
         """ ;
