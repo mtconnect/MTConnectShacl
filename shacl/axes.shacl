@@ -22,3 +22,16 @@ val:RotaryAxesMustBeABCorJoint
         sh:message "name must be one of A, B, C, or Joint followed by an optional number" ;
         sh:minCount 1 ;
     ] .
+
+val:AxesMustHaveOnlyAxisComponents
+    a sh:NodeShape ;
+    sh:targetClass mt:Axes ;
+    sh:property [
+        sh:path mt:hasComponent ;
+        sh:or ( 
+            [ sh:class mt:Linear ] 
+            [ sh:class mt:Rotary ] 
+        ) ;
+        sh:message "An Axis must have only Linear or Rotary components" ;
+        sh:minCount 1 ;
+    ] .
