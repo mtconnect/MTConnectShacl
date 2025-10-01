@@ -19,6 +19,10 @@
 #    Classes
 #################################################################
 
+###  https://purl.mtconnect.org/ontology/Availability
+mt:Availability rdfv:type owl:Class .
+
+
 ###  https://purl.mtconnect.org/ontology/ComputeAvailabilityCapability
 mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                  owl:equivalentClass [ owl:intersectionOf ( mt:Capability
@@ -67,7 +71,7 @@ mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                                                                                                         ]
                                                                                                                         [ rdfv:type owl:Restriction ;
                                                                                                                           owl:onProperty mt:observes ;
-                                                                                                                          owl:someValuesFrom mt:Availability
+                                                                                                                          owl:someValuesFrom mt:AvailabilityDataItem
                                                                                                                         ]
                                                                                                                       ) ;
                                                                                                    rdfv:type owl:Class
@@ -78,6 +82,10 @@ mt:ComputeAvailabilityCapability rdfv:type owl:Class ;
                                                      ] ;
                                  rdfs:subClassOf mt:Capability ;
                                  rdfs:label "compute availability"@en-us .
+
+
+###  https://purl.mtconnect.org/ontology/Execution
+mt:Execution rdfv:type owl:Class .
 
 
 ###  https://purl.mtconnect.org/ontology/FiveAxisCapability
@@ -149,11 +157,11 @@ mt:MonitorActiveCapability rdfv:type owl:Class ;
                                                                         owl:someValuesFrom [ owl:intersectionOf ( mt:Controller
                                                                                                                   [ owl:intersectionOf ( [ rdfv:type owl:Restriction ;
                                                                                                                                            owl:onProperty mt:observes ;
-                                                                                                                                           owl:someValuesFrom mt:ControllerMode
+                                                                                                                                           owl:someValuesFrom mt:ControllerModeDataItem
                                                                                                                                          ]
                                                                                                                                          [ rdfv:type owl:Restriction ;
                                                                                                                                            owl:onProperty mt:observes ;
-                                                                                                                                           owl:someValuesFrom mt:Execution
+                                                                                                                                           owl:someValuesFrom mt:ExecutionDataItem
                                                                                                                                          ]
                                                                                                                                        ) ;
                                                                                                                     rdfv:type owl:Class

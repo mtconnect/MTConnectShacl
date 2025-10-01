@@ -49,8 +49,8 @@ with MTConnect:
   
   # Data Items/Observables
   class DataItem(owl.Thing):
-    """An observable in the MTConnect ontology."""
-    label = owl.locstr("Observable", "en")
+    """An observable data item in the MTConnect ontology."""
+    label = owl.locstr("Data Item", "en")
     is_a = [hasId.some(str), hasName.some(str)]
     
   class hasCategory(owl.DataProperty):
@@ -174,7 +174,7 @@ with MTConnect:
     """An execution event in the MTConnect ontology."""
     label = owl.locstr("Execution", "en")
     
-  class ControllerMode(EventDataItem):
+  class ControllerModeDataItem(EventDataItem):
     """A controller mode event in the MTConnect ontology."""
     label = owl.locstr("Controller Mode", "en")
     

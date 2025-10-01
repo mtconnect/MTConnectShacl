@@ -123,7 +123,7 @@
       <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label xml:lang="en">Observable</rdfs:label>
+  <rdfs:label xml:lang="en">Data Item</rdfs:label>
 </owl:Class>
 
 <owl:Class rdf:about="EventDataItem">
@@ -286,7 +286,7 @@
   <rdfs:label xml:lang="en">Execution</rdfs:label>
 </owl:Class>
 
-<owl:Class rdf:about="ControllerMode">
+<owl:Class rdf:about="ControllerModeDataItem">
   <rdfs:subClassOf rdf:resource="EventDataItem"/>
   <rdfs:label xml:lang="en">Controller Mode</rdfs:label>
 </owl:Class>

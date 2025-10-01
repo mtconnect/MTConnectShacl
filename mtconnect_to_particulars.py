@@ -145,6 +145,8 @@ class MTConnectToParticulars:
           #  node.observesAtSomeTime.append(data_item)
           #else:
           #  node.measuresAtSomeTime.append(data_item)
+        else:
+          logger.warning(f"Data item type {type} not found for {di.get('id', None)}")
 
 '''
   @log_indent
