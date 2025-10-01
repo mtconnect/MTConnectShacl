@@ -33,14 +33,23 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1AVAILABILITY">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AvailabilityDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AVAILABILITY</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">avail</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ASSET_CHANGED">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AssetChangedDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASSET_CHANGED</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d1_asset_chg</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ASSET_REMOVED">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AssetRemovedDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ASSET_REMOVED</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d1_asset_rem</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1a">
@@ -64,6 +73,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1aSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spindle_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ax">
@@ -83,14 +95,27 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1axPOSITION:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MILLIMETER</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xabs</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1axPOSITION_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Xtravel</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1axTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">servotemp1</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ay">
@@ -110,14 +135,27 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ayPOSITION:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MILLIMETER</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yabs</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ypos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ayPOSITION_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ytravel</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ayTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">servotemp2</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1az">
@@ -137,14 +175,27 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1azPOSITION:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MILLIMETER</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zabs</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1azPOSITION_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PositionConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ztravel</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1azTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">servotemp3</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac">
@@ -164,14 +215,26 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1acROTARY_VELOCITY:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/RotaryVelocityDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">REVOLUTION/MINUTE</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ROTARY_VELOCITY</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Srpm</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1acTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemp</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1acTEMPERATURE_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemp_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1abr">
@@ -190,10 +253,19 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Btravel</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DEGREE</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Babs</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2">
@@ -213,14 +285,26 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2ANGLE_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ctravel</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2ANGLE:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DEGREE</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cabs</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2TEMPERATURE_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">S2temp_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1cont">
@@ -239,6 +323,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">system_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1">
@@ -261,26 +348,49 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_POSITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathPositionDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MILLIMETER_3D</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PATH_POSITION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pathpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:RAPID">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateOverrideRapidDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PATH_FEEDRATE_OVERRIDE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Frapidovr</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RAPID</onto:hasSubType>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE_OVERRIDE:PROGRAMMED">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateOverrideProgrammedDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PATH_FEEDRATE_OVERRIDE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fovr</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PROGRAMMED</onto:hasSubType>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1PATH_FEEDRATE:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/PathFeedrateActualDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MILLIMETER/SECOND</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PATH_FEEDRATE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fact</onto:hasId>
+  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1EXECUTION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/ExecutionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EXECUTION</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">execution</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1contpath1SYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">path_system</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systems">
@@ -314,6 +424,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemshydraulicSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hydra_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemscoolant">
@@ -332,10 +445,17 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemscoolantSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coolant_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemscoolantTEMPERATURE">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
+  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cooltemp</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemspneumatic">
@@ -353,6 +473,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemspneumaticSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pneu_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemslubrication">
@@ -370,6 +493,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1systemslubricationSYSTEM_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/SystemConditionDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYSTEM</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">lubrication_cond</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesm">
@@ -401,6 +527,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmpersonnelmUSER">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/UserDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">USER</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">operator</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterials">
@@ -431,6 +560,9 @@
 
 <owl:NamedIndividual rdf:about="Mazak317641d1resourcesmmaterialsprocstockMATERIAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/MaterialDataItem"/>
+  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MATERIAL</onto:hasType>
+  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</onto:hasCategory>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stock</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:AllDifferent>

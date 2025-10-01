@@ -119,6 +119,19 @@ class MTConnectToParticulars:
           data_item = di_cls(partic.name + type)
           partic.observes.append(data_item)
           
+          units = di.get("units", None)
+          if units:
+            data_item.hasUnits.append(units)            
+          data_item.hasType.append(di.get("type", None))
+          data_item.hasCategory.append(di.get("category", None))
+          data_item.hasId.append(di.get("id", None))
+          name = di.get("name", None)
+          if name:
+            data_item.hasName.append(name)
+          sub_type = di.get("subType", None)
+          if sub_type:
+            data_item.hasSubType.append(sub_type)
+
           node = None
           #comp_id = di.get("compositionId", None)
           #if comp_id:

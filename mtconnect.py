@@ -28,6 +28,24 @@ with MTConnect:
     label = owl.locstr("has uuid", "en")
     domain = [owl.Thing]
     range = [str]
+    
+  class hasType(owl.DataProperty):
+    """A property indicating the type of a component."""
+    label = owl.locstr("has type", "en")
+    domain = [owl.Thing]
+    range = [str]
+  
+  class hasUnits(owl.DataProperty):
+    """A property indicating the units of a data item."""
+    label = owl.locstr("has units", "en")
+    domain = [owl.Thing]
+    range = [str]
+  
+  class hasSubType(owl.DataProperty):
+    """A property indicating the subtype of a data item."""
+    label = owl.locstr("has subtype", "en")
+    domain = [owl.Thing]
+    range = [str]
   
   # Data Items/Observables
   class DataItem(owl.Thing):
@@ -35,17 +53,26 @@ with MTConnect:
     label = owl.locstr("Observable", "en")
     is_a = [hasId.some(str), hasName.some(str)]
     
+  class hasCategory(owl.DataProperty):
+    """A property indicating the category of a component."""
+    label = owl.locstr("has category", "en")
+    domain = [DataItem]
+    range = [str]
+  
   class EventDataItem(DataItem):
     """An event in the MTConnect ontology."""
     label = owl.locstr("Event", "en")
+    is_a = [hasCategory.value("EVENT")]
     
   class SampleDataItem(DataItem):
     """A sample in the MTConnect ontology."""
     label = owl.locstr("Sample", "en")
+    is_a = [hasCategory.value("SAMPLE"), hasUnits.some(str)]
 
   class ConditionDataItem(DataItem):
     """A condition in the MTConnect ontology."""
     label = owl.locstr("Condition", "en")
+    is_a = [hasCategory.value("CONDITION")]
     
   # Some Sample Data Item types
   class PositionDataItem(SampleDataItem):
@@ -267,18 +294,18 @@ with MTConnect:
     """A rotary axis in the MTConnect ontology."""
     label = owl.locstr("Rotary Axis", "en")
   
-  class Controller(Component):
+  # Systems
+  class System(Component):
+    """A system in the MTConnect ontology."""
+    label = owl.locstr("System", "en")
+    
+  class Controller(System):
     """A controller in the MTConnect ontology."""
     label = owl.locstr("Controller", "en")
     
   class Path(Controller):
     """A path in the MTConnect ontology."""
     label = owl.locstr("Path", "en")
-    
-  # Systems
-  class System(Component):
-    """A system in the MTConnect ontology."""
-    label = owl.locstr("System", "en")
     
   class Elecric(System):
     """An electric system in the MTConnect ontology."""

@@ -1,0 +1,39 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+val:DataItemMustHaveId
+    a sh:NodeShape ;
+    sh:message "DataItem must have id." ;
+    sh:targetClass mt:DataItem ;
+    sh:property [
+          sh:path mt:hasId ;
+          sh:datatype xsd:string ;
+          sh:pattern "^[a-zA-Z_][a-zA-Z0-9_\\-]*$" ;
+          sh:minCount 1 ;
+    ] .
+
+
+val:DataItemMustHaveType
+    a sh:NodeShape ;
+    sh:message "DataItem must have type." ;
+    sh:targetClass mt:DataItem ;
+    sh:property [
+          sh:path mt:hasType ;
+          sh:datatype xsd:string ;
+          sh:pattern "^([a-zA-Z]+:)?[A-Z_]+$" ;
+          sh:minCount 1 ;
+    ] .
+
+val:DataItemMustHaveCategory
+    a sh:NodeShape ;
+    sh:message "DataItem must have category." ;
+    sh:targetClass mt:DataItem ;
+    sh:property [
+          sh:path mt:hasCategory ;
+          sh:minCount 1 ;
+          sh:datatype xsd:string ;
+          sh:in ( "EVENT"^^xsd:string "SAMPLE"^^xsd:string "CONDITION"^^xsd:string ) ;
+    ] .
