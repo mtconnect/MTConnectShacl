@@ -37,7 +37,7 @@ ont_graph = "mtconnect.rdf"
 
 print("\n-----------------------------------------------\n")
 
-for shacl in glob("*.shacl"):
+for shacl in glob("shacl/*.shacl"):
   print("\nValidating with SHACL file:{}\n".format(shacl))
   shacl_graph = shacl
   shacl_report, shacl_graph, shacl_text = validate(data_graph,
