@@ -1,0 +1,24 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix data: <https://mtconnect.org/data/> .
+@prefix val: <https://purl.mtconnect.org/shacl/> .
+@prefix mt: <https://purl.mtconnect.org/ontology/> .
+
+val:LinearAxesMustBeXYOrZ 
+    a sh:NodeShape ;
+    sh:targetClass mt:Linear ;
+    sh:property [
+        sh:path mt:hasName ;
+        sh:pattern "^[X-Z][0-9]*$" ;
+        sh:message "name must be one of X, Y, or Z followed by an optional number" ;
+        sh:minCount 1 ;
+    ] .
+
+val:RotaryAxesMustBeABCorJoint
+    a sh:NodeShape ;
+    sh:targetClass mt:Rotary ;
+    sh:property [
+        sh:path mt:hasName ;
+        sh:pattern "^[A-CJ][0-9]*$" ;
+        sh:message "name must be one of A, B, C, or Joint followed by an optional number" ;
+        sh:minCount 1 ;
+    ] .
