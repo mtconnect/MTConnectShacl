@@ -134,6 +134,7 @@
       <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EVENT</owl:hasValue>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:disjointWith rdf:resource="SampleDataItem"/>
   <rdfs:label xml:lang="en">Event</rdfs:label>
 </owl:Class>
 

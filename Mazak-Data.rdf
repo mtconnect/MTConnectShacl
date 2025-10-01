@@ -59,7 +59,6 @@
   <onto:hasComponent rdf:resource="Mazak317641d1ax"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ay"/>
   <onto:hasComponent rdf:resource="Mazak317641d1az"/>
-  <onto:hasComponent rdf:resource="Mazak317641d1ac"/>
   <onto:hasComponent rdf:resource="Mazak317641d1abr"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ac2"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a</rdfs:label>
@@ -84,9 +83,13 @@
   <onto:observes rdf:resource="Mazak317641d1axPOSITION:ACTUAL"/>
   <onto:observes rdf:resource="Mazak317641d1axPOSITION_CONDITION"/>
   <onto:observes rdf:resource="Mazak317641d1axTEMPERATURE"/>
+  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Rotary"/>
+  <onto:observes rdf:resource="Mazak317641d1axROTARY_VELOCITY:ACTUAL"/>
+  <onto:observes rdf:resource="Mazak317641d1axTEMPERATURE_CONDITION"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a x</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</onto:hasName>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x</onto:hasId>
+  <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C1</onto:hasName>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1axCapability">
@@ -116,6 +119,7 @@
   <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
   <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">servotemp1</onto:hasId>
+  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemp</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ay">
@@ -198,22 +202,7 @@
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">servotemp3</onto:hasId>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Mazak317641d1ac">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Rotary"/>
-  <onto:hasCapability rdf:resource="Mazak317641d1acCapability"/>
-  <onto:observes rdf:resource="Mazak317641d1acROTARY_VELOCITY:ACTUAL"/>
-  <onto:observes rdf:resource="Mazak317641d1acTEMPERATURE"/>
-  <onto:observes rdf:resource="Mazak317641d1acTEMPERATURE_CONDITION"/>
-  <rdfs:label xml:lang="en">Mazak 317641 d1 a c</rdfs:label>
-  <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C1</onto:hasName>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c</onto:hasId>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1acCapability">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1acROTARY_VELOCITY:ACTUAL">
+<owl:NamedIndividual rdf:about="Mazak317641d1axROTARY_VELOCITY:ACTUAL">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/RotaryVelocityDataItem"/>
   <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">REVOLUTION/MINUTE</onto:hasUnits>
   <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ROTARY_VELOCITY</onto:hasType>
@@ -222,15 +211,7 @@
   <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="Mazak317641d1acTEMPERATURE">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureDataItem"/>
-  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CELSIUS</onto:hasUnits>
-  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
-  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemp</onto:hasId>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1acTEMPERATURE_CONDITION">
+<owl:NamedIndividual rdf:about="Mazak317641d1axTEMPERATURE_CONDITION">
   <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/TemperatureConditionDataItem"/>
   <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
   <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
@@ -595,7 +576,7 @@
     <rdf:Description rdf:about="Mazak317641d1ax"/>
     <rdf:Description rdf:about="Mazak317641d1ay"/>
     <rdf:Description rdf:about="Mazak317641d1az"/>
-    <rdf:Description rdf:about="Mazak317641d1ac"/>
+    <rdf:Description rdf:about="Mazak317641d1ax"/>
     <rdf:Description rdf:about="Mazak317641d1abr"/>
     <rdf:Description rdf:about="Mazak317641d1ac2"/>
   </owl:distinctMembers>

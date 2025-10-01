@@ -73,7 +73,9 @@ with MTConnect:
     """A condition in the MTConnect ontology."""
     label = owl.locstr("Condition", "en")
     is_a = [hasCategory.value("CONDITION")]
-    
+  
+  owl.AllDisjoint([EventDataItem, SampleDataItem])
+  
   # Some Sample Data Item types
   class PositionDataItem(SampleDataItem):
     """A position observable in the MTConnect ontology."""

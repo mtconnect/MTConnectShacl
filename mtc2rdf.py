@@ -11,6 +11,7 @@ import logger
 from generate_html import render_vendor, render_terminology
 from pyshacl import validate
 from glob import glob
+from rdflib import Graph
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +38,8 @@ ont_graph = "mtconnect.rdf"
 
 print("\n-----------------------------------------------\n")
 
+error_graph = Graph()
+
 for shacl in glob("shacl/*.shacl"):
   print("\nValidating with SHACL file:{}\n".format(shacl))
   shacl_graph = shacl
@@ -52,10 +55,16 @@ for shacl in glob("shacl/*.shacl"):
         js=False,
         debug=False)
 
-  print (shacl_report)
+  print(shacl_report)
   print(shacl_text)
-  
+  error_graph += shacl_graph
+
   print("\n-----------------------------------------------\n")
+  
+with open("shacl_errors.ttl", "wb") as errors:
+  errors.write(error_graph.serialize(format='turtle').encode("utf-8"))
+
+  
 
 
   
