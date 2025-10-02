@@ -21,6 +21,7 @@ class GenerateDiagram:
     
     self.namespaces = {
       "https://purl.mtconnect.org/ontology/": 'mt',
+      "https://mtconnect.org/data/": 'data',
       "http://www.w3.org/2002/07/owl#": 'owl',
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#": 'rdf',
       "http://www.w3.org/2001/XMLSchema#": 'xsd',
@@ -67,7 +68,7 @@ class GenerateDiagram:
 
     if o.is_a[0].namespace == MTConnect:
       ns, name = self._name(o.is_a[0]).split(':')
-      cls = f"{ns}:[[../Example.html#{name} {name}]]"
+      cls = f"{ns}:[[../MTConnect.html#{name} {name}]]"
       f.write(f"individual({self._obj(o)}, {title}, {cls})\n")      
     else:
       f.write(f"individual({self._obj(o)}, {title}, {self._name(o.is_a[0])})\n")    
@@ -120,9 +121,8 @@ title {os.path.basename(self.filename)}
                       "ns":"Green", 
                       "ns1":"76608A",
                       "core":"000000",
-                      "ex":"Green",
                       "data":"76608A",
-                      "vendor":"76608A",
+                      "mt":"76608A",
                       "units":"8A2D3B",
                       "cmns-dsg":"3A0519",
                       "qp":"641B2E"
