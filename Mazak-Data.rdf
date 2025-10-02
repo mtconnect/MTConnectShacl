@@ -60,7 +60,6 @@
   <onto:hasComponent rdf:resource="Mazak317641d1ay"/>
   <onto:hasComponent rdf:resource="Mazak317641d1az"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ac"/>
-  <onto:hasComponent rdf:resource="Mazak317641d1abr"/>
   <onto:hasComponent rdf:resource="Mazak317641d1ac2"/>
   <rdfs:label xml:lang="en">Mazak 317641 d1 a</rdfs:label>
   <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">base</onto:hasName>
@@ -235,37 +234,6 @@
   <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TEMPERATURE</onto:hasType>
   <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
   <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stemp_cond</onto:hasId>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1abr">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Rotary"/>
-  <onto:hasCapability rdf:resource="Mazak317641d1abrCapability"/>
-  <onto:observes rdf:resource="Mazak317641d1abrANGLE_CONDITION"/>
-  <onto:observes rdf:resource="Mazak317641d1abrANGLE:ACTUAL"/>
-  <rdfs:label xml:lang="en">Mazak 317641 d1 a br</rdfs:label>
-  <onto:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B</onto:hasName>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">br</onto:hasId>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1abrCapability">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/Capability"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE_CONDITION">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleDataItem"/>
-  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
-  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CONDITION</onto:hasCategory>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Btravel</onto:hasId>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="Mazak317641d1abrANGLE:ACTUAL">
-  <rdf:type rdf:resource="https://purl.mtconnect.org/ontology/AngleActualDataItem"/>
-  <onto:hasUnits rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DEGREE</onto:hasUnits>
-  <onto:hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ANGLE</onto:hasType>
-  <onto:hasCategory rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SAMPLE</onto:hasCategory>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Babs</onto:hasId>
-  <onto:hasSubType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ACTUAL</onto:hasSubType>
-  <onto:hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bpos</onto:hasId>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="Mazak317641d1ac2">
@@ -604,7 +572,6 @@
     <rdf:Description rdf:about="Mazak317641d1ay"/>
     <rdf:Description rdf:about="Mazak317641d1az"/>
     <rdf:Description rdf:about="Mazak317641d1ac"/>
-    <rdf:Description rdf:about="Mazak317641d1abr"/>
     <rdf:Description rdf:about="Mazak317641d1ac2"/>
   </owl:distinctMembers>
 </owl:AllDifferent>
