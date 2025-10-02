@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY data "https://mtconnect.org/data/">
+	<!ENTITY mt "https://purl.mtconnect.org/ontology/">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY rdfv "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY xml "http://www.w3.org/XML/1998/namespace">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdfv:RDF
+	xmlns="https://purl.mtconnect.org/ontology/Capability/"
+	xmlns:data="https://mtconnect.org/data/"
+	xmlns:mt="https://purl.mtconnect.org/ontology/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:rdfv="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdfv:about="https://purl.mtconnect.org/ontology/Capability/">
+		<rdfs:label xml:lang="en-US">MTConnect Capabilities</rdfs:label>
+		<owl:imports rdfv:resource="https://mtconnect.org/data/"/>
+		<owl:imports rdfv:resource="https://purl.mtconnect.org/ontology/"/>
+	</owl:Ontology>
+	
+	<owl:Class rdfv:about="&mt;ComputeAvailabilityCapability">
+		<rdfs:subClassOf rdfv:resource="&mt;Capability"/>
+		<rdfs:label xml:lang="en-US">compute availability</rdfs:label>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Controller">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:someValuesFrom>
+															<owl:Class>
+																<owl:intersectionOf rdfv:parseType="Collection">
+																	<rdfv:Description rdfv:about="&mt;Path">
+																	</rdfv:Description>
+																	<owl:Restriction>
+																		<owl:onProperty rdfv:resource="&mt;hasCapability"/>
+																		<owl:someValuesFrom rdfv:resource="&mt;MonitorActiveCapability"/>
+																	</owl:Restriction>
+																</owl:intersectionOf>
+															</owl:Class>
+														</owl:someValuesFrom>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;observes"/>
+										<owl:someValuesFrom rdfv:resource="&mt;AvailabilityDataItem"/>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Controller">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasCapability"/>
+														<owl:someValuesFrom rdfv:resource="&mt;MonitorActiveCapability"/>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdfv:about="&mt;FiveAxisCapability">
+		<rdfs:subClassOf rdfv:resource="&mt;FourAxisCapability"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Axes">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Rotary"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">3</owl:minQualifiedCardinality>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdfv:about="&mt;FourAxisCapability">
+		<rdfs:subClassOf rdfv:resource="&mt;Capability"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Axes">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Rotary"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">2</owl:minQualifiedCardinality>
+													</owl:Restriction>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Linear"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">3</owl:minQualifiedCardinality>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdfv:about="&mt;MonitorActiveCapability">
+		<rdfs:subClassOf rdfv:resource="&mt;Capability"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Controller">
+									</rdfv:Description>
+									<owl:Class>
+										<owl:intersectionOf rdfv:parseType="Collection">
+											<owl:Restriction>
+												<owl:onProperty rdfv:resource="&mt;observes"/>
+												<owl:someValuesFrom rdfv:resource="&mt;ControllerModeDataItem"/>
+											</owl:Restriction>
+											<owl:Restriction>
+												<owl:onProperty rdfv:resource="&mt;observes"/>
+												<owl:someValuesFrom rdfv:resource="&mt;ExecutionDataItem"/>
+											</owl:Restriction>
+										</owl:intersectionOf>
+									</owl:Class>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdfv:about="&mt;SixAxisCapability">
+		<rdfs:subClassOf rdfv:resource="&mt;Capability"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Axes">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Rotary"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">4</owl:minQualifiedCardinality>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdfv:about="&mt;ThreeAxisMachine">
+		<rdfs:subClassOf rdfv:resource="&mt;Capability"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdfv:parseType="Collection">
+					<rdfv:Description rdfv:about="&mt;Capability">
+					</rdfv:Description>
+					<owl:Restriction>
+						<owl:onProperty rdfv:resource="&mt;isCapabilityOf"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdfv:parseType="Collection">
+									<rdfv:Description rdfv:about="&mt;Device">
+									</rdfv:Description>
+									<owl:Restriction>
+										<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+										<owl:someValuesFrom>
+											<owl:Class>
+												<owl:intersectionOf rdfv:parseType="Collection">
+													<rdfv:Description rdfv:about="&mt;Axes">
+													</rdfv:Description>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Rotary"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+													</owl:Restriction>
+													<owl:Restriction>
+														<owl:onProperty rdfv:resource="&mt;hasComponent"/>
+														<owl:onClass rdfv:resource="&mt;Linear"/>
+														<owl:minQualifiedCardinality rdfv:datatype="&xsd;nonNegativeInteger">3</owl:minQualifiedCardinality>
+													</owl:Restriction>
+												</owl:intersectionOf>
+											</owl:Class>
+										</owl:someValuesFrom>
+									</owl:Restriction>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+
+</rdfv:RDF>
