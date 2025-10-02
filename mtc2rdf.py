@@ -69,5 +69,15 @@ for shacl in glob("shacl/*.shacl"):
 with open(f"{trans.device.name}_shacl_errors.ttl", "wb") as errors:
   errors.write(error_graph.serialize(format='turtle').encode("utf-8"))
 
+print("Loading Capabilites")  
+with open(f"Capabilities.rdf", "rb") as f:
+  Capabilities = owl.get_ontology("https://purl.mtconnect.org/ontology/Capability/").load(only_local = True, fileobj=f)
 
-  
+print("Running reasoner")
+
+owl.sync_reasoner_pellet(infer_property_values=True, infer_data_property_values=True, debug=0)
+
+print("Generating Capabilities")
+for x in owl.default_world.sparql("""select ?s ?t { ?s a ?? . ?s ?? ?c . ?c a ?t }""", [MTConnect.Device, MTConnect.hasCapability]):
+  print(f"{x[0]} has capability {x[1]}")
+
