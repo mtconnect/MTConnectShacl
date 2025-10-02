@@ -34,11 +34,11 @@ with open(file_name, 'r') as file:
     trans.write()
 
 all_data = list(owl.default_world.sparql(f"""select ?s ?p ?o {{ ?s ?p ?o . FILTER(LIKE(STR(?s), "{trans.Data.base_iri}%")) }}"""))
-full = GenerateDiagram(f"MazakFull", all_data)
+full = GenerateDiagram(f"{trans.device.name}Full", all_data)
 logger.info("Generating full diagram")
 full.generate()
 
-data_graph = "Mazak-Data.rdf"
+data_graph = f"{trans.device.name}-Data.rdf"
 ont_graph = "mtconnect.rdf"
 
 print("\n-----------------------------------------------\n")
@@ -66,7 +66,7 @@ for shacl in glob("shacl/*.shacl"):
 
   print("\n-----------------------------------------------\n")
   
-with open("shacl_errors.ttl", "wb") as errors:
+with open(f"{trans.device.name}_shacl_errors.ttl", "wb") as errors:
   errors.write(error_graph.serialize(format='turtle').encode("utf-8"))
 
 
