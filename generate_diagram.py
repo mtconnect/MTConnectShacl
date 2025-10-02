@@ -14,22 +14,13 @@ class GenerateDiagram:
   def _obj(self, obj):
     return self.objects.get(obj, None)
   
-  def __init__(self, filename, statements, vendor):
+  def __init__(self, filename, statements):
     self.filename = filename
     self.statements = statements
     self.objects = dict()
-    self.vendor = vendor
     
     self.namespaces = {
-      'https://spec.industrialontologies.org/ontology/core/Core/': 'core',
-      'http://purl.obolibrary.org/obo/': 'bfo',
-      'http://qudt.org/vocab/unit/': 'units',
-      'https://www.omg.org/spec/Commons/Designators/': 'des',
-      'https://spec.industrialontologies.org/ontology/qualities/Qualities/': 'qual',
-      'https://spec.industrialontologies.org/ontology/qualities/Qualities-Physical/': 'qualphys',
-      'http://example.org/data/': 'data',
-      f"http://example.org/{vendor.name}/": 'vendor',
-      "http://example.org/ontology/": 'ex',
+      "https://purl.mtconnect.org/ontology/": 'mt',
       "http://www.w3.org/2002/07/owl#": 'owl',
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#": 'rdf',
       "http://www.w3.org/2001/XMLSchema#": 'xsd',
@@ -60,10 +51,7 @@ class GenerateDiagram:
         ns += '/'
     else:      
       ns = o.namespace.base_iri
-      if o.namespace.base_iri == BFO.base_iri:
-        name = o._python_name
-      else:
-        name = o.name
+      name = o.name
 
     pre = self.namespaces.get(ns, "_")        
     return f"{pre}:{name}"
@@ -71,30 +59,24 @@ class GenerateDiagram:
   def _print_object(self, f, o):
     if o == ob.rdf_nil: return
     
-    if o in self.linked_terms:
+    if self.linked_terms and o in self.linked_terms:
       ns, name = self._name(o).split(':')
       title = f"{ns}:[[./{name}.html {name}]]"
     else:
       title = self._name(o)
 
-    if o.is_a[0].namespace == self.vendor:
-      ns, name = self._name(o.is_a[0]).split(':')
-      cls = f"{ns}:[[../{self.vendor.name}.html#{name} {name}]]"
-      f.write(f"individual({self._obj(o)}, {title}, {cls})\n")      
-    elif o.is_a[0].namespace == Example:
+    if o.is_a[0].namespace == MTConnect:
       ns, name = self._name(o.is_a[0]).split(':')
       cls = f"{ns}:[[../Example.html#{name} {name}]]"
-      f.write(f"individual({self._obj(o)}, {title}, {cls})\n")      
-    elif o.is_a[0].namespace == Core:
-      ns, name = self._name(o.is_a[0]).split(':')
-      cls = f"{ns}:[[{o.is_a[0].iri} {name}]]"
       f.write(f"individual({self._obj(o)}, {title}, {cls})\n")      
     else:
       f.write(f"individual({self._obj(o)}, {title}, {self._name(o.is_a[0])})\n")    
 
   def _print_statement(self, f, s, p, o):
     if p != ob.rdf_type and o != ob.rdf_nil:
-      if isinstance(o, (int, str, float)):
+      if isinstance(p, owl.DataPropertyClass):
+        f.write(f"data({self._obj(s)}, \"{self._name(p)}\", \"{o}\")\n")
+      elif isinstance(o, (int, str, float)):
         f.write(f"data({self._obj(s)}, \"{self._name(p)}\", \"{self._name(o)}\")\n")
       else:
         f.write(f"property({self._obj(s)}, \"{self._name(p)}\", {self._obj(o)})\n")
